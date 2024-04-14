@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #1D1F21;
+}
+
+.blob {
+    position: absolute;
+    width: 565px;
+    height: 500px;
+    left: -150px;
+    bottom: 0px;
+
+    background: linear-gradient(180deg, #2254C5 0%, rgba(34, 84, 197, 0) 100%);
+    opacity: 0.4;
+    filter: blur(75px);
+    border-radius: 650px;
+}
+
+.blob-2 {
+    position: absolute;
+    width: 565.5px;
+    height: 514px;
+    right: 0px;
+    top: -50px;
+
+    background: linear-gradient(180deg, #2254C5 0%, rgba(34, 84, 197, 0) 100%);
+    opacity: 0.8;
+    filter: blur(75px);
+}
+
+.wrapper {
+    height: 30%;
+    width: 60%;
+    margin: 15% auto;
+    /*Center horizontally*/
+}
+
+.inputBtn {
+    display: none;
+}
+
+.custom-file-upload {
+    background-color: #ddd;
+    color: #444;
+    padding: 5px 10px;
+    border: 1px solid #aaa;
+    cursor: pointer;
+    width: 50%;
+}
+
+/* Added rule to center the heading */
+h1 {
+    text-align: center;
+    color: azure;
+}
+
+/* Added rule to center the form elements */
+form {
+    text-align: center;
+}
+
+img {
+    width: 10%;
+    margin-right: 5px;
+}
+
+p {
+    color: azure;
+}
+
+button {
+    background-color: wheat;
+    /* Green color */
+    color: black;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    /* Add rounded corners */
+}
+
+button:hover {
+    background-color: whitesmoke;
+}

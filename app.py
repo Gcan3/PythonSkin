@@ -13,7 +13,7 @@ app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 # Load the pre-trained model
-model = tf.keras.models.load_model('model.keras')
+model = tf.keras.models.load_model('model.h5')
 
 # Define the allowed file extensions for image uploads
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
