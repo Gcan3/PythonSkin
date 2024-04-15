@@ -6,34 +6,36 @@ body {
 
 .blob {
     position: absolute;
-    width: 565px;
-    height: 500px;
-    left: -150px;
-    bottom: 0px;
-
-    background: linear-gradient(180deg, #2254C5 0%, rgba(34, 84, 197, 0) 100%);
+    background: #007bff;
+    /* Blue color */
     opacity: 0.4;
     filter: blur(75px);
-    border-radius: 650px;
+    border-radius: 500px;
+    width: 400px;
+    height: 400px;
 }
 
 .blob-2 {
     position: absolute;
-    width: 565.5px;
-    height: 514px;
-    right: 0px;
-    top: -50px;
-
-    background: linear-gradient(180deg, #2254C5 0%, rgba(34, 84, 197, 0) 100%);
-    opacity: 0.8;
+    background: #007bff;
+    /* Blue color */
+    opacity: 0.4;
     filter: blur(75px);
+    border-radius: 500px;
+    width: 400px;
+    height: 400px;
+
+    top: -100px;
+    right: 0px;
 }
 
 .wrapper {
-    height: 30%;
-    width: 60%;
-    margin: 15% auto;
-    /*Center horizontally*/
+  position: relative; /* Needed to position blobs relatively */
+  margin: 10% auto; /* Center the wrapper horizontally */
+  width: 80%; /* Adjust width as needed */
+  padding: 10px; /* Add padding for content */
+  background-color: transparent;
+  border-radius: 10px;
 }
 
 .inputBtn {
@@ -61,11 +63,12 @@ form {
 }
 
 img {
-    width: 10%;
+    width: 8%;
     margin-right: 5px;
 }
 
 p {
+    text-align: center;
     color: azure;
 }
 
