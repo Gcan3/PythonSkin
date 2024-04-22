@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" data-sidebar-color="light" data-topbar-color="light" data-sidebar-view="default">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results | SkinGuard</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="x-icon" href="img/skinguard-favicon.svg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Head JS -->
+    <script src="js/head.js"></script>
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div class="app-wrapper">
+        <!-- Menu Start -->
+        <div class="app-menu">
+            <!-- Logo -->
+            <a href="index.html" class="logo-box">
+                <img src="img/skinguard-logo-small.png">
+            </a>
+            <!--- Menu -->
+            <div data-simplebar>
+                <ul class="menu">
+                    <li class="menu-title">MENU</li>
+
+                    <li class="menu-item">
+                        <a href="index.html" class="menu-link">
+                            <span class="menu-icon"><i class="mdi mdi-home-outline"></i></span>
+                            <span class="menu-text"> Home </span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="analyze-skin.html" class="menu-link">
+                            <span class="menu-icon"><i class="mdi mdi-magnify"></i></span>
+                            <span class="menu-text"> Analyze Skin </span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#" class="menu-link">
+                            <span class="menu-icon"><i class="mdi mdi-chart-bell-curve-cumulative"></i></span>
+                            <span class="menu-text"> Skin Type </span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="#" class="menu-link">
+                            <span class="menu-icon"><i class="mdi mdi-weather-sunny"></i></span>
+                            <span class="menu-text"> UV Index </span>
+                        </a>
+                    </li>
+
+                    <li class="menu-title">INFORMATION</li>
+
+                    <li class="menu-item">
+                        <a href="https://skinguard-information-center.notaku.site/" target="_blank" class="menu-link">
+                            <span class="menu-icon"><i class="mdi mdi-information-outline"></i></span>
+                            <span class="menu-text"> Information Center </span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="https://skinguard-knowledge-base.notaku.site/" target="_blank" class="menu-link">
+                            <span class="menu-icon"><i class="mdi mdi-help"></i></span>
+                            <span class="menu-text"> Help Center </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Menu End -->
+
+        <!-- Page Content Start -->
+        <div class="app-content">
+
+            <!-- Heading Bar Start -->
+            <header class="app-header">
+
+                <!-- Brand Logo -->
+                <a href="index.html" class="logo-box">
+                    <img src="img/skinguard-single-logo.svg" class="small-logo" alt="Small logo">
+                </a>
+
+                <!-- Menu Toggle Button -->
+                <button id="button-toggle-menu" class="nav-link">
+                    <span class="hamburger-nav"></span>
+                    <span class="hamburger-nav-main">
+                        <i class="mdi mdi-24px mdi-menu"></i>
+                    </span>
+                </button>
+
+                <!-- Page Title -->
+                <h4 class="header-font-title">Results</h4>
+            </header>
+            <!-- Heading Bar End -->
+
+            <!-- Main Content Start -->
+            <main class="main-body">
+                <!-- Upper Row -->
+                <div class="main-grid-row xl-grid-4-cols m-grid-2-cols">
+
+                    <!-- Skin Image Start -->
+                    <div class="card card-skin-photo">
+                        <div class="card-header flex justify-between items-center">
+                            <h4 class="card-title">Image</h4>
+                        </div>
+
+                        <div class="card-container">
+                            <img class="img-card" src="img/skin-pic.jpg" alt="">
+                        </div>
+                    </div>
+                    <!-- Skin Image End -->
+
+                    <!-- Result Start -->
+                    <div class="results-row">
+                        <div class="card card-diagnosis-table">
+                            <div class="card-header">
+                                <h4 class="card-title">Diagnosis</h4>
+                            </div>
+
+                            <div class="results-container">
+                                <div class="result-icon">
+                                    <span class="results-container icon">
+                                        <i class="mdi mdi-24px mdi-stethoscope"></i>
+                                    </span>
+                                    <span>
+                                        <span class="result-heading">Classification</span>
+                                        <span class="result-number"><span>Benign</span></span>
+                                    </span>
+                                </div>
+
+                                <p class="result-description">A benign growth is <strong>non-cancerous</strong>,
+                                    typically develops slowly, and doesn't spread to other parts of the body.</p>
+                            </div>
+                        </div>
+
+                        <div class="card card-diagnosis-table">
+                            <div class="card-header">
+                                <h4 class="card-title">Accuracy</h4>
+                            </div>
+
+                            <div class="results-container">
+                                <div class="result-icon">
+                                    <span class="results-container icon">
+                                        <i class="mdi mdi-24px mdi-percent-outline"></i>
+                                    </span>
+                                    <span>
+                                        <span class="result-heading">Accuracy Score</span>
+                                        <span class="result-number"><span>95.42%</span></span>
+                                    </span>
+                                </div>
+
+                                <p class="result-description">Accuracy score is a a measure of how well the algorithm predicts whether a skin spot is benign or malignant</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Result End -->
+
+                <div class="main-grid-row xl-grid-4-cols m-grid-2-cols">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Risk Measurement</h4>
+                        </div>
+
+                        <div class="card-container">
+                            <div class="circle-risk">
+                                <input data-plugin="knob" data-width="175" data-height="200" data-linecap=round
+                                    data-fgColor="#4C87F9" value="10" data-skin="tron" data-angleOffset="180"
+                                    data-readOnly=true data-thickness=".15" />
+                                <h5 class="risk-header">You're Safe!</h5>
+                                <p class="risk-paragraph">The spot has a low likelihood of being malignant, indicating a relatively low level of concern.</p>
+                            </div>
+                        </div>
+                    </div><!--end-->
+                    <div class="card card-table">
+                        <div class="card-header flex justify-between items-center">
+                            <h4 class="card-title">Analysis</h4>
+                        </div>
+                        <div class="navigation-main">
+                            <div class="navigation-container">
+                                <div>
+                                    <nav class="navigation-action" aria-label="Tabs" role="tablist">
+                                        <button type="button" class="navigation-tab active"
+                                            id="tabs-with-underline-item-1" data-hs-tab="#tabs-with-underline-1"
+                                            aria-controls="tabs-with-underline-1" role="tab">
+                                            Results
+                                        </button> <!-- button-end -->
+                                        <button type="button" class="navigation-tab" id="tabs-with-underline-item-2"
+                                            data-hs-tab="#tabs-with-underline-2" aria-controls="tabs-with-underline-2"
+                                            role="tab">
+                                            Risk
+                                        </button> <!-- button-end -->
+                                        <button type="button" class="navigation-tab" id="tabs-with-underline-item-3"
+                                            data-hs-tab="#tabs-with-underline-3" aria-controls="tabs-with-underline-3"
+                                            role="tab">
+                                            Next Steps
+                                        </button> <!-- button-end -->
+                                    </nav> <!-- nav-end -->
+
+                                    <div class="navigation-content-container">
+                                        <div id="tabs-with-underline-1"
+                                            class=" transition-all duration-300 transform active" role="tabpanel"
+                                            aria-labelledby="tabs-with-underline-item-1">
+                                            <p>
+                                                Enim voluptate veniam commodo ex cillum pariatur est consequat
+                                                excepteur. Sint magna incididunt amet incididunt laboris eiusmod id.
+                                                Ipsum labore aute enim anim commodo fugiat ex magna cillum ex
+                                                consectetur deserunt. Pariatur velit veniam ut adipisicing ut ex commodo
+                                                fugiat culpa cillum do. Anim id nisi sit ipsum commodo excepteur.
+                                            </p>
+                                        </div> <!-- tabs-with-underline-1 end -->
+
+                                        <div id="tabs-with-underline-2"
+                                            class="transition-all duration-300 transform  hidden" role="tabpanel"
+                                            aria-labelledby="tabs-with-underline-item-2">
+                                            <p>
+                                                Sint laboris ex anim anim enim occaecat irure nisi eiusmod dolore
+                                                deserunt adipisicing Lorem. Sit nostrud adipisicing aliqua proident quis
+                                                sint amet. Ad Lorem dolor magna aliquip laboris fugiat cillum laborum.
+                                                Reprehenderit irure ullamco adipisicing velit ea in. Labore ut voluptate
+                                                sit deserunt. Commodo labore deserunt elit ad aliqua ad ut officia ipsum
+                                                veniam reprehenderit Lorem ullamco pariatur. Qui ex occaecat quis
+                                                cupidatat enim ut pariatur adipisicing culpa aliqua consequat
+                                                exercitation eiusmod.</p>
+                                        </div> <!-- tabs-with-underline-2 end -->
+
+                                        <div id="tabs-with-underline-3"
+                                            class="transition-all duration-300 transform  hidden" role="tabpanel"
+                                            aria-labelledby="tabs-with-underline-item-3">
+                                            <p>
+                                                Ex cillum consectetur est in consequat incididunt ipsum eiusmod dolore
+                                                commodo qui. Irure dolor nisi dolore commodo voluptate eu. Mollit duis
+                                                incididunt anim duis aute ipsum ad tempor nulla enim officia Lorem esse
+                                                labore. Tempor elit voluptate dolore labore do consectetur aliquip
+                                                laboris aliquip. Fugiat ut qui nisi est nisi labore non cupidatat
+                                                deserunt qui qui. Esse consequat dolor dolor reprehenderit mollit
+                                                reprehenderit dolor proident labore laborum exercitation dolor labore.
+                                                Excepteur sit aute nisi proident mollit adipisicing.
+                                            </p>
+                                        </div> <!-- tabs-with-underline-3 end -->
+                                    </div>
+
+                                </div> <!-- tab-end -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- JS -->
+
+        <script src="js/jquery.js"></script>
+        <script src="js/simplebar.js"></script>
+        <script src="js/waves.js"></script>
+        <script src="js/knob.js"></script>
+        <script src="js/preline.js"></script>
+        <script src="js/app.js"></script>
+
+</body>
+
+</html>
