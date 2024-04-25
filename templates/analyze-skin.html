@@ -7,14 +7,14 @@
     <title>Analyze Skin | SkinGuard</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="x-icon" href="img/skinguard-favicon.svg">
+    <link rel="shortcut icon" type="x-icon" href="static/img/skinguard-favicon.svg">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/icons.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="static/css/icons.css">
+    <link rel="stylesheet" href="static/css/style.css">
 
     <!-- Head JS -->
-    <script src="js/head.js"></script>
+    <script src="static/js/head.js"></script>
 </head>
 
 <body>
@@ -24,7 +24,7 @@
         <div class="app-menu">
             <!-- Logo -->
             <a href="index.html" class="logo-box">
-                <img src="img/skinguard-logo-small.png">
+                <img src="static/img/skinguard-logo-small.png">
             </a>
             <!--- Menu -->
             <div data-simplebar>
@@ -32,14 +32,14 @@
                     <li class="menu-title">MENU</li>
 
                     <li class="menu-item">
-                        <a href="index.html" class="menu-link">
+                        <a href="{{ url_for('index') }}" class="menu-link">
                             <span class="menu-icon"><i class="mdi mdi-home-outline"></i></span>
                             <span class="menu-text"> Home </span>
                         </a>
                     </li>
 
                     <li class="menu-item">
-                        <a href="analyze-skin.html" class="menu-link">
+                        <a href="{{ url_for('analyze_skin') }}" class="menu-link">
                             <span class="menu-icon"><i class="mdi mdi-magnify"></i></span>
                             <span class="menu-text"> Analyze Skin </span>
                         </a>
@@ -87,7 +87,7 @@
 
                 <!-- Brand Logo -->
                 <a href="index.html" class="logo-box">
-                    <img src="img/skinguard-single-logo.svg" class="small-logo" alt="Small logo">
+                    <img src="static/img/skinguard-single-logo.svg" class="small-logo" alt="Small logo">
                 </a>
 
                 <!-- Menu Toggle Button -->
@@ -108,44 +108,59 @@
                 <!-- Upper Row -->
                 <div class="main-grid-row xl-grid-4-cols m-grid-3-cols">
 
-                    <!-- Skin Image Start -->
-                    <div class="card card-skin-photo">
-                        <div class="card-header flex justify-between items-center">
-                            <h4 class="card-title">Upload Image</h4>
-                        </div>
+<!-- Skin Image Start -->
+<div class="card card-skin-photo">
+    <div class="card-header flex justify-between items-center">
+        <h4 class="card-title">Upload Image</h4>
+    </div>
 
-                        <div class="card-container">
-                            <div class="input-group">
-                                <form action="/file-upload" class="dropzone" id="upload-dropzone" method="post">
-                                    <div class="dz-default dz-message upload-textbox">
-                                        <i class="mdi mdi-cloud-upload-outline mdi-36px"></i>
-                                        <p>Drop files here or click to upload</p>
-                                    </div>
-                                </form>
-                                <input form="upload-dropzone" type="submit" value="Analyze Image" class="upload-button">
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Skin Image End -->
+    <div class="card-container">
+        <div class="input-group">
+            <!-- upload flask function -->
+            <form action="{{ url_for('upload_file') }}" class="dropzone" id="upload-dropzone" method="post">
+                <div class="dz-default dz-message upload-textbox">
+                    <i class="mdi mdi-cloud-upload-outline mdi-36px"></i>
+                    <p>Drop files here or click to upload</p>
+                </div>
+            </form>
+            <input form="upload-dropzone" type="submit" value="Analyze Image" class="upload-button">
+        </div>
+    </div>
+</div>
+<!-- Skin Image End -->
+
+
                 <!-- Result End -->
 
-                <a class="upload-button" href="results.html">Click here to see the results page -Remove this once upload page is linked to results page-</a>
+                <a class="upload-button" href="{{ url_for('results') }}">Click here to see the results page</a>
+
             </main>
         </div>
 
         <!-- JS -->
 
-        <script src="js/jquery.js"></script>
-        <script src="js/simplebar.js"></script>
-        <script src="js/waves.js"></script>
-        <script src="js/knob.js"></script>
-        <script src="js/preline.js"></script>
-        <script src="js/app.js"></script>
+        <script src="static/js/jquery.js"></script>
+        <script src="static/js/simplebar.js"></script>
+        <script src="static/js/waves.js"></script>
+        <script src="static/js/knob.js"></script>
+        <script src="static/js/preline.js"></script>
+        <script src="static/js/app.js"></script>
 
         <!-- Dropzone -->
         <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
-        <script src="js/dropzone.js"></script>
+        <script src="static/js/dropzone.js"></script>
 
+        <script>
+            // Enable the Analyze Image button when a file is uploaded
+            Dropzone.options.uploadDropzone = {
+                init: function() {
+                    this.on("addedfile", function() {
+                        $('#analyze-button').prop('disabled', false);
+                    });
+                }
+            };
+        </script>
+        
 </body>
 
 </html>

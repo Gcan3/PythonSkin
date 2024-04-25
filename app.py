@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from werkzeug.utils import secure_filename
 import os
 from tensorflow.keras.models import load_model
@@ -6,23 +6,18 @@ from tensorflow.keras.preprocessing import image
 import numpy as np
 import locale
 import tensorflow as tf
+
 locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
 
 app = Flask(__name__)
-# Enable automatic reloading of templates
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 
-# Load the pre-trained model
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 model = tf.keras.models.load_model('model.h5')
 
-# Define the allowed file extensions for image uploads
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
-
-# Function to check if a file has a permitted file extension
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-# Function to make predictions
 def predict_image(file_path, model):
     img = image.load_img(file_path, target_size=(224, 224))
     img_array = image.img_to_array(img)
@@ -41,6 +36,24 @@ def predict_image(file_path, model):
 def index():
     return render_template('index.html')
 
+@app.route('/analyze-skin')
+def analyze_skin():
+    return render_template('analyze-skin.html')
+
+@app.route('/results')
+def results():
+    result = request.args.get('result')
+    prediction_score = request.args.get('prediction_score')
+    return render_template('results.html', result=result, prediction_score=prediction_score)
+
+@app.route('/skin-type')
+def skin_type():
+    return render_template('skin-type.html')
+
+@app.route('/uv-index')
+def uv_index():
+    return render_template('uv-index.html')
+
 @app.route('/upload', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:
@@ -49,20 +62,16 @@ def upload_file():
     file = request.files['file']
 
     if file and allowed_file(file.filename):
-        # Save the file without encoding
         filename = secure_filename(file.filename)
         file_path = os.path.join('uploads', filename)
 
-        # Save the file
         file.save(file_path)
 
-        # Make prediction
         result, prediction_score = predict_image(file_path, model)
 
-        # Delete the uploaded file
         os.remove(file_path)
 
-        return render_template('index.html', message='Prediction: {}, Prediction Score: {:.2f}'.format(result, prediction_score))
+        return redirect(url_for('results', result=result, prediction_score=prediction_score))
     else:
         return render_template('index.html', message='Invalid file extension')
 

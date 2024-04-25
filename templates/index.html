@@ -1,38 +1,314 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-sidebar-color="light" data-topbar-color="light" data-sidebar-view="default">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <title>Image Classification</title>
-</head>
-<body>
-    <div class="blob"></div>
-    <div class="blob-2"></div>
-    <div class="wrapper">
-        <div class="container-fluid m-auto">
-            <h1><img src="https://cdn-icons-png.freepik.com/256/2592/2592317.png">Skin Cancer Detection</h1>
-            <p> </p>
-            <form action="/upload" method="post" enctype="multipart/form-data">
-                <label for="file-upload" id="file-label" class="custom-file-upload">Insert Photo For Scanning</label>
-                <input class="inputBtn" type="file" id="file-upload" name="file" accept="image/*" required>
-                <button type="submit">Analyze Image</button>
-            </form>
-            {% if message %}
-            <p>{{ message }}</p>
-            {% endif %}
-        </div>
-    
-    </div>
+    <title>Home | SkinGuard</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <script src="{{url_for('static', filename='index.js')}}"></script>
-    <!-- <script src="index.js"></script> -->
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="x-icon" href="static/img/skinguard-favicon.svg">
+    
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="static/css/icons.css">
+    <link rel="stylesheet" href="static/css/style.css">
+
+    <!-- Head JS -->
+    <script src="static/js/head.js"></script>
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div class="app-wrapper">
+        <!-- Menu Start -->
+        <div class="app-menu">
+            <!-- Logo -->
+            <a href="index.html" class="logo-box">
+                <img src="static/img/skinguard-logo-small.png">
+            </a>
+            <!--- Menu -->
+            <div data-simplebar>
+                <ul class="menu">
+                    <li class="menu-title">MENU</li>
+
+                    <li class="menu-item">
+                        <a href="index.html" class="menu-link">
+                            <span class="menu-icon"><i class="mdi mdi-home-outline"></i></span>
+                            <span class="menu-text"> Home </span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="{{ url_for('analyze_skin') }}" class="menu-link">
+                            <span class="menu-icon"><i class="mdi mdi-magnify"></i></span>
+                            <span class="menu-text"> Analyze Skin </span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="{{ url_for('skin_type') }}" class="menu-link">
+                            <span class="menu-icon"><i class="mdi mdi-chart-bell-curve-cumulative"></i></span>
+                            <span class="menu-text"> Skin Type </span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="{{ url_for('uv_index') }}" class="menu-link">
+                            <span class="menu-icon"><i class="mdi mdi-weather-sunny"></i></span>
+                            <span class="menu-text"> UV Index </span>
+                        </a>
+                    </li>
+
+                    <li class="menu-title">INFORMATION</li>
+
+                    <li class="menu-item">
+                        <a href="https://skinguard-information-center.notaku.site/" target="_blank" class="menu-link">
+                            <span class="menu-icon"><i class="mdi mdi-information-outline"></i></span>
+                            <span class="menu-text"> Information Center </span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="https://skinguard-knowledge-base.notaku.site/" target="_blank" class="menu-link">
+                            <span class="menu-icon"><i class="mdi mdi-help"></i></span>
+                            <span class="menu-text"> Help Center </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Menu End -->
+
+        <!-- Page Content Start -->
+        <div class="app-content">
+
+            <!-- Heading Bar Start -->
+            <header class="app-header">
+
+                <!-- Brand Logo -->
+                <a href="index.html" class="logo-box">
+                    <img src="static/img/skinguard-single-logo.svg" class="small-logo" alt="Small logo">
+                </a>
+
+                <!-- Menu Toggle Button -->
+                <button id="button-toggle-menu" class="nav-link">
+                    <span class="hamburger-nav"></span>
+                    <span class="hamburger-nav-main">
+                        <i class="mdi mdi-24px mdi-menu"></i>
+                    </span>
+                </button>
+
+                <!-- Page Title -->
+                <h4 class="header-font-title">Home</h4>
+            </header>
+            <!-- Heading Bar End -->
+
+            <!-- Main Content Start -->
+            <main class="main-body">
+                <!-- Upper Row -->
+                <div class="main-grid-row">
+
+                    <!-- Skin Image Start -->
+                    <div class="card card-main-features">
+                        <div class="card-header">
+                            <h4 class="card-title">Explore Features</h4>
+                        </div>
+
+                        <div class="card-container">
+                            <div class="features-row">
+                                <div class="card card-features">
+                                    <a href="{{ url_for('analyze_skin') }}">
+                                    <div class="result-icon">
+                                        <span class="features-container icon">
+                                            <i class="mdi mdi-24px mdi-magnify"></i>
+                                        </span>
+                                        </span>
+                                    </div>
+                                    <h5>Analyze Skin</h5>
+                                    <p>Ad quis in sunt incididunt ea mollit esse incididunt reprehenderit excepteur
+                                        culpa veniam aliqua laboris.</p>
+                                    <div class="explore-button-container">
+                                        <div class = "explore-button">
+                                            <p>Get Started</p>
+                                            <i class = "mdi mdi-arrow-right"></i>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+                                <div class="card card-features">
+                                    <a href="{{ url_for('skin_type') }}">
+                                    <div class="result-icon">
+                                        <span class="features-container icon">
+                                            <i class="mdi mdi-24px mdi-chart-bell-curve-cumulative"></i>
+                                        </span>
+                                        </span>
+                                    </div>
+                                    <h5>Skin Type</h5>
+                                    <p>Ad quis in sunt incididunt ea mollit esse incididunt reprehenderit excepteur
+                                        culpa veniam aliqua laboris.</p>
+                                    <div class="explore-button-container">
+                                        <div class = "explore-button">
+                                            <p>Get Started</p>
+                                            <i class = "mdi mdi-arrow-right"></i>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+                                <div class="card card-features">
+                                    <a href="{{ url_for('uv_index') }}">
+                                    <div class="result-icon">
+                                        <span class="features-container icon">
+                                            <i class="mdi mdi-24px mdi-weather-sunny"></i>
+                                        </span>
+                                        </span>
+                                    </div>
+                                    <h5>UV Index</h5>
+                                    <p>Ad quis in sunt incididunt ea mollit esse incididunt reprehenderit excepteur
+                                        culpa veniam aliqua laboris.</p>
+                                    <div class="explore-button-container">
+                                        <div class = "explore-button">
+                                            <p>Get Started</p>
+                                            <i class = "mdi mdi-arrow-right"></i>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Skin Image End -->
+                </div>
+                <!-- Result End -->
+
+                <!-- Lower Row -->
+                <div class="main-grid-row xl-grid-4-cols m-grid-2-cols">
+
+                    <!-- Resources Start -->
+                    <div class="card card-skin-photo">
+                        <div class="card-header flex justify-between items-center">
+                            <h4 class="card-title">Resources</h4>
+                        </div>
+
+                        <div class="card-container card-grid">
+                            <div class="card card-features card-resources">
+                                <div class="result-icon">
+                                    <span class="resources-container icon">
+                                        <i class="mdi mdi-24px mdi-web"></i>
+                                    </span>
+                                    <h5 class = "resources-heading">
+                                        Website
+                                    </h5>
+                                </div>
+                            </div>
+
+                            <div class="card card-features card-resources">
+                                <div class="result-icon">
+                                    <span class="resources-container icon">
+                                        <i class="mdi mdi-24px mdi-information-outline"></i>
+                                    </span>
+                                    <h5 class = "resources-heading">
+                                        Information Center
+                                    </h5>
+                                </div>
+                            </div>
+
+                            <div class="card card-features card-resources">
+                                <div class="result-icon">
+                                    <span class="resources-container icon">
+                                        <i class="mdi mdi-24px mdi-help"></i>
+                                    </span>
+                                    <h5 class = "resources-heading">
+                                        Help Center
+                                    </h5>
+                                </div>
+                            </div>
+
+                            <div class="card card-features card-resources">
+                                <div class="result-icon">
+                                    <span class="resources-container icon">
+                                        <i class="mdi mdi-24px mdi-email-outline"></i>
+                                    </span>
+                                    <h5 class = "resources-heading">
+                                        Email Us
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Resources End -->
+
+                    <!-- Resources Start -->
+                    <div class="card card-skin-photo">
+                        <div class="card-header flex justify-between items-center">
+                            <h4 class="card-title">Follow Us</h4>
+                        </div>
+
+                        <div class="card-container card-grid">
+                            <div class="card card-features card-resources">
+                                <div class="result-icon">
+                                    <span class="resources-container icon">
+                                        <i class="mdi mdi-24px mdi-linkedin"></i>
+                                    </span>
+                                    <h5 class = "resources-heading">
+                                        LinkedIn
+                                    </h5>
+                                </div>
+                            </div>
+
+                            <div class="card card-features card-resources">
+                                <div class="result-icon">
+                                    <span class="resources-container icon">
+                                        <i class="mdi mdi-24px mdi-instagram"></i>
+                                    </span>
+                                    <h5 class = "resources-heading">
+                                        Instagram
+                                    </h5>
+                                </div>
+                            </div>
+
+                            <div class="card card-features card-resources">
+                                <div class="result-icon">
+                                    <span class="resources-container icon">
+                                        <i class="mdi mdi-24px mdi-facebook"></i>
+                                    </span>
+                                    <h5 class = "resources-heading">
+                                        Facebook
+                                    </h5>
+                                </div>
+                            </div>
+
+                            <div class="card card-features card-resources">
+                                <div class="result-icon">
+                                    <span class="resources-container icon">
+                                        <i class="mdi mdi-24px mdi-whatsapp"></i>
+                                    </span>
+                                    <h5 class = "resources-heading">
+                                        WhatsApp
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Resources End -->
+
+
+                    
+                </div>
+            </main>
+        </div>
+
+        <!-- JS -->
+
+        <script src="static/js/jquery.js"></script>
+        <script src="static/js/simplebar.js"></script>
+        <script src="static/js/waves.js"></script>
+        <script src="static/js/knob.js"></script>
+        <script src="static/js/preline.js"></script>
+        <script src="static/js/app.js"></script>
 
 </body>
+
 </html>
