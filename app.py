@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 from werkzeug.utils import secure_filename
 import os
 from tensorflow.keras.models import load_model
@@ -28,9 +28,13 @@ def predict_image(file_path, model):
     prediction_score = prediction[0][0]  # Assuming binary classification
     
     if prediction_score > 0.5:
-        return "Malignant", prediction_score
+        result = "Malignant"
     else:
-        return "Benign", prediction_score
+        result = "Benign"
+    
+    return result, float(prediction_score)  # Ensure prediction_score is a regular Python float
+
+
 
 @app.route('/')
 def index():
@@ -57,7 +61,7 @@ def uv_index():
 @app.route('/upload', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:
-        return render_template('index.html', message='No file part')
+        return jsonify({'error': 'No file part'})
 
     file = request.files['file']
 
@@ -71,9 +75,12 @@ def upload_file():
 
         os.remove(file_path)
 
-        return redirect(url_for('results', result=result, prediction_score=prediction_score))
+        return jsonify({'result': result, 'prediction_score': prediction_score})
     else:
-        return render_template('index.html', message='Invalid file extension')
+        return jsonify({'error': 'Invalid file extension'})
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

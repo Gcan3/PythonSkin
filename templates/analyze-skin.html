@@ -23,7 +23,7 @@
         <!-- Menu Start -->
         <div class="app-menu">
             <!-- Logo -->
-            <a href="index.html" class="logo-box">
+            <a href="{{ url_for('index') }}" class="logo-box">
                 <img src="static/img/skinguard-logo-small.png">
             </a>
             <!--- Menu -->
@@ -86,7 +86,7 @@
             <header class="app-header">
 
                 <!-- Brand Logo -->
-                <a href="index.html" class="logo-box">
+                <a href="{{ url_for('index') }}" class="logo-box">
                     <img src="static/img/skinguard-single-logo.svg" class="small-logo" alt="Small logo">
                 </a>
 
@@ -108,59 +108,141 @@
                 <!-- Upper Row -->
                 <div class="main-grid-row xl-grid-4-cols m-grid-3-cols">
 
-<!-- Skin Image Start -->
-<div class="card card-skin-photo">
-    <div class="card-header flex justify-between items-center">
-        <h4 class="card-title">Upload Image</h4>
-    </div>
+                
+                    <!-- Skin Image Start -->
+                    <div class="card card-skin-photo">
+                        <div class="card-header flex justify-between items-center">
+                            <h4 class="card-title">Upload Image</h4>
+                        </div>
 
-    <div class="card-container">
-        <div class="input-group">
-            <!-- upload flask function -->
-            <form action="{{ url_for('upload_file') }}" class="dropzone" id="upload-dropzone" method="post">
-                <div class="dz-default dz-message upload-textbox">
-                    <i class="mdi mdi-cloud-upload-outline mdi-36px"></i>
-                    <p>Drop files here or click to upload</p>
-                </div>
-            </form>
-            <input form="upload-dropzone" type="submit" value="Analyze Image" class="upload-button">
+                        <div class="card-container">
+                            <div class="input-group">
+                                <!-- upload flask function -->
+                                <form id="uploadForm" enctype="multipart/form-data">
+                                    <input type="file" name="file" accept="image/*">
+                                    <button type="submit" class="upload-button">Analyze Image</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Skin Image End -->
+                
+              <!-- Skin Image Start -->
+<div id="imagePart" style="display: none;">
+    <div class="card card-skin-photo">
+        <div class="card-header flex justify-between items-center">
+            <h4 class="card-title">Image</h4>
+        </div>
+
+        <div class="card-container">
+            <img id="uploadedImage" class="img-card" src="" alt="">
         </div>
     </div>
 </div>
 <!-- Skin Image End -->
 
+                    <!-- Skin Image End -->
 
-                <!-- Result End -->
+                    <!-- Result Start -->
+                    
+                   <!-- Result Start -->
+    <div class="results-row" id="results">
+        <!-- Paste the content related to the diagnosis and accuracy here -->
+        <div class="card card-diagnosis-table">
+            <div class="card-header">
+                <h4 class="card-title">Diagnosis</h4>
+            </div>
 
-                <a class="upload-button" href="{{ url_for('results') }}">Click here to see the results page</a>
+            <div class="results-container">
+                <div class="result-icon">
+                    <span class="results-container icon">
+                        <i class="mdi mdi-24px mdi-stethoscope"></i>
+                    </span>
+                    <span>
+                        <span class="result-heading">Classification</span>
+                        <span class="result-number" id="classification"><span></span></span>
+                    </span>
+                </div>
 
-            </main>
+                <p class="result-description">A benign growth is <strong>non-cancerous</strong>,
+                    typically develops slowly, and doesn't spread to other parts of the body.</p>
+            </div>
         </div>
 
-        <!-- JS -->
+        <div class="card card-diagnosis-table">
+            <div class="card-header">
+                <h4 class="card-title">Accuracy</h4>
+            </div>
 
-        <script src="static/js/jquery.js"></script>
-        <script src="static/js/simplebar.js"></script>
-        <script src="static/js/waves.js"></script>
-        <script src="static/js/knob.js"></script>
-        <script src="static/js/preline.js"></script>
-        <script src="static/js/app.js"></script>
+            <div class="results-container">
+                <div class="result-icon">
+                    <span class="results-container icon">
+                        <i class="mdi mdi-24px mdi-percent-outline"></i>
+                    </span>
+                    <span>
+                        <span class="result-heading">Accuracy Score</span>
+                        <span class="result-number" id="accuracyScore"><span></span></span>
+                    </span>
+                </div>
 
-        <!-- Dropzone -->
-        <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
-        <script src="static/js/dropzone.js"></script>
+                <p class="result-description">Accuracy score is a a measure of how well the algorithm predicts whether a skin spot is benign or malignant</p>
+            </div>
+        </div>
+    </div>
+</div>
+                    <!-- Result End -->
+                </div>
+            </main>
 
-        <script>
-            // Enable the Analyze Image button when a file is uploaded
-            Dropzone.options.uploadDropzone = {
-                init: function() {
-                    this.on("addedfile", function() {
-                        $('#analyze-button').prop('disabled', false);
-                    });
-                }
-            };
-        </script>
-        
+            <!-- JS -->
+            <script src="static/js/jquery.js"></script>
+            <script src="static/js/simplebar.js"></script>
+            <script src="static/js/waves.js"></script>
+            <script src="static/js/knob.js"></script>
+            <script src="static/js/preline.js"></script>
+            <script src="static/js/app.js"></script>
+
+            <!-- Script for handling form submission -->
+<!-- Paste this JavaScript code at the end of the <body> tag -->
+    <script>
+        document.getElementById("uploadForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            analyzeImage(formData);
+        });
+    
+        function analyzeImage(formData) {
+            fetch("/upload", {
+                method: "POST",
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Display the results section and "Image" part
+                    document.getElementById("results").style.display = "block";
+                    document.getElementById("imagePart").style.display = "block";
+    
+                    // Update the content of the "Image" part
+                    document.getElementById("uploadedImage").src = URL.createObjectURL(formData.get('file'));
+    
+                    // Update the content of the results
+                    document.getElementById("classification").innerText = data.result;
+                    document.getElementById("accuracyScore").innerText = data.prediction_score;
+                })
+                .catch(error => console.error("Error:", error));
+        }
+    
+        // Hide the results section and "Image" part initially
+        document.getElementById("results").style.display = "none";
+        document.getElementById("imagePart").style.display = "none";
+    </script>
+    
+    
+        </div>
+        <!-- Page Content End -->
+    </div>
+    <!-- Wrapper End -->
 </body>
 
 </html>
