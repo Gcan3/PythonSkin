@@ -1206,7 +1206,7 @@ button {
 .results-row {
     display: flex;
     flex-direction: column;
-    row-gap: 1.5rem;
+    gap: 1.5rem;
 }
 
 .card-diagnosis-table {
@@ -1386,6 +1386,11 @@ canvas {
     padding: 1.25rem;
     display: flex;
     justify-content: center;
+}
+
+.card-container.skin-upload {
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 /* Risk Measurement */
