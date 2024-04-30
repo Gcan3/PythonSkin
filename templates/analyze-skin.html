@@ -170,6 +170,7 @@
             </div>
         </div>
 
+        <!-- ACCURACY RESULTS -->
         <div class="card card-diagnosis-table">
             <div class="card-header">
                 <h4 class="card-title">Accuracy</h4>
@@ -182,7 +183,7 @@
                     </span>
                     <span>
                         <span class="result-heading">Accuracy Score</span>
-                        <span class="result-number" id="accuracyScore"><span></span></span>
+                        <span class="result-number" id="accuracyScore"></span>%
                     </span>
                 </div>
 
@@ -228,7 +229,20 @@
     
                     // Update the content of the results
                     document.getElementById("classification").innerText = data.result;
-                    document.getElementById("accuracyScore").innerText = data.prediction_score;
+                    document.getElementById("accuracyScore").innerText = data.scaled_value;
+
+                    let scaledValue;
+                    if (data.scaled_value >= 0.001 && data.scaled_value <= 0.02) {
+                        // Scale the value from 0.001-0.02 to 0-1 range relative to 0.02 as 100%
+                        scaledValue = (data.scaled_value / 0.02) * 100;
+                    } else if (data.scaled_value >= 0.5 && data.scaled_value <= 1) {
+                        // Existing logic for 0.5-1 range (considering 0.5 as 0% and 1 as 100%)
+                        scaledValue = (data.scaled_value - 0.5) / (1 - 0.5) * 100;
+                    } 
+                    // Round the scaled value before displaying
+                    const roundedScaledValue = Math.round(scaledValue);
+                    document.getElementById("accuracyScore").innerText = Number(roundedScaledValue);
+
                 })
                 .catch(error => console.error("Error:", error));
         }

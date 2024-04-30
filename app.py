@@ -32,7 +32,16 @@ def predict_image(file_path, model):
     else:
         result = "Benign"
     
-    return result, float(prediction_score)  # Ensure prediction_score is a regular Python float
+    if 0.001 <= prediction_score <= 0.02:
+        # Scale the value from 0-0.49 to 0-1 range relative to 0.49 as 100%
+        scaled_value = prediction_score / 0.49
+        scaled_value * 1000  # Percentage within the 0-0.49 range (0-100%)
+    elif 0.5 <= prediction_score <= 1:
+        # Existing logic for 0.5-1 range (considering 0.5 as 0% and 1 as 100%)
+        scaled_value = (prediction_score - 0.5) / (1 - 0.5)
+        scaled_value * 100
+    
+    return result, float(scaled_value)  # Ensure prediction_score is a regular Python float
 
 
 
@@ -44,11 +53,11 @@ def index():
 def analyze_skin():
     return render_template('analyze-skin.html')
 
-@app.route('/results')
-def results():
-    result = request.args.get('result')
-    prediction_score = request.args.get('prediction_score')
-    return render_template('results.html', result=result, prediction_score=prediction_score)
+# @app.route('/results')
+# def results():
+#     result = request.args.get('result')
+#     prediction_score = request.args.get('prediction_score')
+#     return render_template('results.html', result=result, prediction_score=prediction_score)
 
 @app.route('/skin-type')
 def skin_type():
@@ -71,15 +80,13 @@ def upload_file():
 
         file.save(file_path)
 
-        result, prediction_score = predict_image(file_path, model)
+        result, scaled_value = predict_image(file_path, model)
 
         os.remove(file_path)
 
-        return jsonify({'result': result, 'prediction_score': prediction_score})
+        return jsonify({'result': result, 'scaled_value': scaled_value})
     else:
         return jsonify({'error': 'Invalid file extension'})
-
-
 
 
 if __name__ == '__main__':
