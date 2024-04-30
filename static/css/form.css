@@ -1,0 +1,8 @@
+.radiobtn {
+    display: flex;
+    align-items: center;
+}
+
+.radio-text-margin {
+    margin-left: 5px;
+}
