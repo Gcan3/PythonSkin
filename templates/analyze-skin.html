@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" 
-    data-sidebar-color="light" 
-    data-topbar-color="light" 
-    data-sidebar-view="default">
+<html lang="en" data-sidebar-color="light" data-topbar-color="light" data-sidebar-view="default">
 
 <head>
     <meta charset="UTF-8">
@@ -137,7 +134,7 @@
                     </div>
                     <!-- Result Start -->
                     <div class="results-row" id="results">
-                        <!-- Paste the content related to the diagnosis and accuracy here -->
+                        <!-- Diagnosis and Accuracy here -->
                         <div>
                             <div class="card card-diagnosis-table" style="margin-bottom: 1.5rem;">
                                 <div class="card-header">
@@ -155,11 +152,14 @@
                                     </div>
 
                                     <!-- Result Description Blocks -->
-                                    <p class="result-description-benign" style="display: none;">A benign growth is <strong>non-cancerous</strong>,
+                                    <p class="result-description-benign" style="display: none;">A benign growth is
+                                        <strong>non-cancerous</strong>,
                                         typically develops slowly, and doesn't spread to other parts of the body.
                                     </p>
-                                    <p class="result-description-malignant" style="display: none;"> A malignant melanoma are aggressive cases of
-                                        <strong>cancerous</strong> cells that linger and spread throughout the body which needs urgent medical attention.
+                                    <p class="result-description-malignant" style="display: none;"> A malignant melanoma
+                                        are aggressive cases of
+                                        <strong>cancerous</strong> cells that linger and spread throughout the body
+                                        which needs urgent medical attention.
                                     </p>
                                     <!-- Result Description Block -->
                                 </div>
@@ -189,11 +189,78 @@
                     </div>
                     <!-- Result End -->
                 </div>
+
+                <div class="main-grid-row">
+                    <div class="card card-table">
+                        <div class="card-header flex justify-between items-center">
+                            <h4 class="card-title">Analysis</h4>
+                        </div>
+                        <div class="navigation-main">
+                            <div class="navigation-container">
+                                <div>
+                                    <nav class="navigation-action" aria-label="Tabs" role="tablist">
+                                        <button type="button" class="navigation-tab active"
+                                            id="tabs-with-underline-item-1" data-hs-tab="#tabs-with-underline-1"
+                                            aria-controls="tabs-with-underline-1" role="tab">
+                                            Results
+                                        </button> <!-- button-end -->
+                                        <button type="button" class="navigation-tab" id="tabs-with-underline-item-2"
+                                            data-hs-tab="#tabs-with-underline-2" aria-controls="tabs-with-underline-2"
+                                            role="tab">
+                                            Accuracy Information
+                                        </button> <!-- button-end -->
+                                        <button type="button" class="navigation-tab" id="tabs-with-underline-item-3"
+                                            data-hs-tab="#tabs-with-underline-3" aria-controls="tabs-with-underline-3"
+                                            role="tab">
+                                            Next Steps
+                                        </button> <!-- button-end -->
+                                    </nav> <!-- nav-end -->
+
+                                    <div class="navigation-content-container">
+                                        <div id="tabs-with-underline-1"
+                                            class=" transition-all duration-300 transform active" role="tabpanel"
+                                            aria-labelledby="tabs-with-underline-item-1">
+                                            <p class="result-description-benign" style="display: none;">
+                                                
+                                            </p>
+                                            <p class="result-description-malignant" style="display: block;">
+                                                
+                                            </p>
+                                        </div> <!-- tabs-with-underline-1 end -->
+
+                                        <div id="tabs-with-underline-2"
+                                            class="transition-all duration-300 transform  hidden" role="tabpanel"
+                                            aria-labelledby="tabs-with-underline-item-2">
+                                            <p class="result-description-benign" style="display: none;">
+                                                
+                                            </p>
+                                            <p class="result-description-malignant" style="display: block;">
+
+                                            </p>
+                                            
+                                        </div> <!-- tabs-with-underline-2 end -->
+
+                                        <div id="tabs-with-underline-3"
+                                            class="transition-all duration-300 transform  hidden" role="tabpanel"
+                                            aria-labelledby="tabs-with-underline-item-3">
+                                            <p class="result-description-benign" style="display: none;">
+
+                                            </p>
+                                            <p class="result-description-malignant" style="display: block;">
+
+                                            </p>
+                                        </div> <!-- tabs-with-underline-3 end -->
+                                    </div>
+                                </div> <!-- tab-end -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </main>
         </div>
 
 
-    <!-- Page Content End -->
+        <!-- Page Content End -->
     </div>
     <!-- JS -->
     <script src="static/js/jquery.js"></script>
