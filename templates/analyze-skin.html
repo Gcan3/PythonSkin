@@ -81,15 +81,12 @@
 
         <!-- Page Content Start -->
         <div class="app-content">
-
             <!-- Heading Bar Start -->
             <header class="app-header">
-
                 <!-- Brand Logo -->
                 <a href="{{ url_for('index') }}" class="logo-box">
                     <img src="static/img/skinguard-single-logo.svg" class="small-logo" alt="Small logo">
                 </a>
-
                 <!-- Menu Toggle Button -->
                 <button id="button-toggle-menu" class="nav-link">
                     <span class="hamburger-nav"></span>
@@ -97,24 +94,20 @@
                         <i class="mdi mdi-24px mdi-menu"></i>
                     </span>
                 </button>
-
                 <!-- Page Title -->
                 <h4 class="header-font-title">Analyze Skin</h4>
             </header>
             <!-- Heading Bar End -->
-
             <!-- Main Content Start -->
             <main class="main-body">
                 <!-- Upper Row -->
                 <div class="main-grid-row xl-grid-4-cols m-grid-3-cols">
-
-                
-                    <!-- Skin Image Start -->
+                    <!-- Upload Skin Image Start -->
                     <div class="card card-skin-photo">
                         <div class="card-header flex justify-between items-center">
                             <h4 class="card-title">Upload Image</h4>
                         </div>
-
+                        <!-- Upload card -->
                         <div class="card-container">
                             <div class="input-group">
                                 <!-- upload flask function -->
@@ -125,125 +118,135 @@
                             </div>
                         </div>
                     </div>
-            
-                    <!-- Skin Image End -->
+                    <!-- Upload Skin Image End -->
                 
-              <!-- Skin Image Start -->
-<div id="imagePart" style="display: none;">
-    <div class="card card-skin-photo">
-        <div class="card-header flex justify-between items-center">
-            <h4 class="card-title">Image</h4>
-        </div>
+                    <!-- Skin Image Display Start -->
+                    <div id="imagePart" style="display: none;">
+                        <div class="card card-skin-photo">
+                            <div class="card-header flex justify-between items-center">
+                                <h4 class="card-title">Image</h4>
+                            </div>
 
-        <div class="card-container">
-            <img id="uploadedImage" class="img-card" src="" alt="">
-        </div>
-    </div>
-</div>
-<!-- Skin Image End -->
-
-                    <!-- Skin Image End -->
+                            <div class="card-container">
+                                <img id="uploadedImage" class="img-card" src="" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Skin Image Display End -->
 
                     <!-- Result Start -->
-                    
-                   <!-- Result Start -->
-    <div class="results-row" id="results">
-        <!-- Paste the content related to the diagnosis and accuracy here -->
-        <div class="card card-diagnosis-table">
-            <div class="card-header">
-                <h4 class="card-title">Diagnosis</h4>
-            </div>
+                    <div class="results-row" id="results">
+                        <!-- Diagnosis and Accuracy -->
+                        <div class="card card-diagnosis-table">
+                            <div class="card-header">
+                                <h4 class="card-title">Diagnosis</h4>
+                            </div>
 
-            <div class="results-container">
-                <div class="result-icon">
-                    <span class="results-container icon">
-                        <i class="mdi mdi-24px mdi-stethoscope"></i>
-                    </span>
-                    <span>
-                        <span class="result-heading">Classification</span>
-                        <span class="result-number" id="classification"><span></span></span>
-                    </span>
-                </div>
+                            <div class="results-container">
+                                <div class="result-icon">
+                                    <span class="results-container icon">
+                                        <i class="mdi mdi-24px mdi-stethoscope"></i>
+                                    </span>
+                                    <span>
+                                        <span class="result-heading">Classification</span>
+                                        <span class="result-number" id="classification"></span>
+                                    </span>
+                                </div>
+                                <!-- Result Description Blocks -->
+                                <p class="result-description-benign" style="display: none;">A benign growth is <strong>non-cancerous</strong>,
+                                    typically develops slowly, and doesn't spread to other parts of the body.</p>
+                                <p class="result-description-malignant" style="display: none;"> A malignant melanoma are aggressive cases of 
+                                    <strong>cancerous</strong> cells that linger and spread throughout the body which needs urgent medical attention.</p>
+                                <!-- Result Description Block -->
+                            </div>
+                        </div>
 
-                <p class="result-description">A benign growth is <strong>non-cancerous</strong>,
-                    typically develops slowly, and doesn't spread to other parts of the body.</p>
-            </div>
-        </div>
+                        <!-- ACCURACY RESULTS -->
+                        <div class="card card-diagnosis-table">
+                            <div class="card-header">
+                                <h4 class="card-title">Accuracy</h4>
+                            </div>
 
-        <!-- ACCURACY RESULTS -->
-        <div class="card card-diagnosis-table">
-            <div class="card-header">
-                <h4 class="card-title">Accuracy</h4>
-            </div>
-
-            <div class="results-container">
-                <div class="result-icon">
-                    <span class="results-container icon">
-                        <i class="mdi mdi-24px mdi-percent-outline"></i>
-                    </span>
-                    <span>
-                        <span class="result-heading">Accuracy Score</span>
-                        <span class="result-number" id="accuracyScore"></span>%
-                    </span>
-                </div>
-
-                <p class="result-description">Accuracy score is a a measure of how well the algorithm predicts whether a skin spot is benign or malignant</p>
-            </div>
-        </div>
-    </div>
-</div>
+                            <div class="results-container">
+                                <div class="result-icon">
+                                    <span class="results-container icon">
+                                        <i class="mdi mdi-24px mdi-percent-outline"></i>
+                                    </span>
+                                    <span>
+                                        <span class="result-heading">Accuracy Score</span>
+                                        <span class="result-number" id="accuracyScore"></span>
+                                    </span>
+                                </div>
+                                <p class="result-description">Accuracy score is a a measure of how well the algorithm predicts whether a skin spot is benign or malignant</p>
+                            </div>
+                        </div>
+                    </div>
                     <!-- Result End -->
-                </div>
-            </main>
+                </div>    
+            </main>        
+        </div>
+    <!-- JS -->
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/simplebar.js"></script>
+    <script src="static/js/waves.js"></script>
+    <script src="static/js/knob.js"></script>
+    <script src="static/js/preline.js"></script>
+    <script src="static/js/app.js"></script>
 
-            <!-- JS -->
-            <script src="static/js/jquery.js"></script>
-            <script src="static/js/simplebar.js"></script>
-            <script src="static/js/waves.js"></script>
-            <script src="static/js/knob.js"></script>
-            <script src="static/js/preline.js"></script>
-            <script src="static/js/app.js"></script>
-
-            <!-- Script for handling form submission -->
-<!-- Paste this JavaScript code at the end of the <body> tag -->
+    <!-- Script for handling form submission -->
     <script>
         document.getElementById("uploadForm").addEventListener("submit", function (event) {
             event.preventDefault();
             var formData = new FormData(this);
             analyzeImage(formData);
         });
-    
+        // Function to analyze the image from the user's uploaded input
         function analyzeImage(formData) {
+            // Grab the user's uploaded input in the form of POST method
             fetch("/upload", {
                 method: "POST",
                 body: formData
             })
+                // Application will send a JSON response that will translate for the script function
                 .then(response => response.json())
                 .then(data => {
                     // Display the results section and "Image" part
                     document.getElementById("results").style.display = "block";
                     document.getElementById("imagePart").style.display = "block";
-    
+                    
                     // Update the content of the "Image" part
                     document.getElementById("uploadedImage").src = URL.createObjectURL(formData.get('file'));
     
                     // Update the content of the results
                     document.getElementById("classification").innerText = data.result;
                     document.getElementById("accuracyScore").innerText = data.scaled_value;
-
+                    
+                    // Get variables for accuracy score and result algorithm
                     let scaledValue;
+                    const resultBenign = document.querySelector(".result-description-benign");
+                    const resultMalignant = document.querySelector(".result-description-malignant");
+                    // According to the prediction scores on the model, benign results can go into 0.49 to < 0.001
+                    // And malignant results can go from 0.5 to 1
+
+                    // Benign Condition
                     if (data.scaled_value >= 0.001 && data.scaled_value <= 0.49) {
-                        // Scale the value from 0.001-0.02 to 0-1 range relative to 0.02 as 100%
-                        scaledValue = (data.scaled_value / 0.02) * 100;
-                    } else if (data.scaled_value >= 0.5 && data.scaled_value <= 1) {
-                        // Existing logic for 0.5-1 range (considering 0.5 as 0% and 1 as 100%)
+                        // Show benign description while hiding the malignant description
+                        resultBenign.style.display = "block";
+                        resultMalignant.style.display = "none";
+                        // Get the decimal value of the result and turn it into percentage
+                        scaledValue = (1- data.scaled_value / 0.49) * 100;
+                    } else if (data.scaled_value >= 0.5 && data.scaled_value <= 1) { // Malignant description
+                        // Display malignant description while hiding the benign description
+                        resultBenign.style.display = "none";
+                        resultMalignant.style.display = "block";
+                        // Get the decimal value of the result and turn it into percentage
                         scaledValue = (data.scaled_value - 0.5) / (1 - 0.5) * 100;
                     } 
-                    // Round the scaled value before displaying
+                    // Round the scaled percentage before displaying 
                     const roundedScaledValue = Math.round(scaledValue);
-                    document.getElementById("accuracyScore").innerText = Number(roundedScaledValue);
-
+                    document.getElementById("accuracyScore").innerText = roundedScaledValue + "%";
                 })
+                // For error handling the application model
                 .catch(error => console.error("Error:", error));
         }
     
@@ -253,7 +256,7 @@
     </script>
     
     
-        </div>
+    </div>
         <!-- Page Content End -->
     </div>
     <!-- Wrapper End -->
