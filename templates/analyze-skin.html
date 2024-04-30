@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" data-sidebar-color="light" data-topbar-color="light" data-sidebar-view="default">
+<html lang="en" 
+    data-sidebar-color="light" 
+    data-topbar-color="light" 
+    data-sidebar-view="default">
 
 <head>
     <meta charset="UTF-8">
@@ -82,10 +85,8 @@
 
         <!-- Page Content Start -->
         <div class="app-content">
-
             <!-- Heading Bar Start -->
             <header class="app-header">
-
                 <!-- Brand Logo -->
                 <a href="{{ url_for('index') }}" class="logo-box">
                     <img src="static/img/skinguard-single-logo.svg" class="small-logo" alt="Small logo">
@@ -134,7 +135,6 @@
 
                         <!-- Skin Image End -->
                     </div>
-
                     <!-- Result Start -->
                     <div class="results-row" id="results">
                         <!-- Paste the content related to the diagnosis and accuracy here -->
@@ -143,7 +143,6 @@
                                 <div class="card-header">
                                     <h4 class="card-title">Diagnosis</h4>
                                 </div>
-
                                 <div class="results-container">
                                     <div class="result-icon">
                                         <span class="results-container icon">
@@ -157,31 +156,30 @@
 
                                     <!-- Result Description Blocks -->
                                     <p class="result-description-benign" style="display: none;">A benign growth is <strong>non-cancerous</strong>,
-                                        typically develops slowly, and doesn't spread to other parts of the body.</p>
+                                        typically develops slowly, and doesn't spread to other parts of the body.
+                                    </p>
                                     <p class="result-description-malignant" style="display: none;"> A malignant melanoma are aggressive cases of
                                         <strong>cancerous</strong> cells that linger and spread throughout the body which needs urgent medical attention.
                                     </p>
                                     <!-- Result Description Block -->
                                 </div>
                             </div>
+                            <!-- ACCURACY RESULTS -->
+                            <div class="card card-diagnosis-table">
+                                <div class="card-header">
+                                    <h4 class="card-title">Accuracy</h4>
+                                </div>
 
-        <!-- ACCURACY RESULTS -->
-        <div class="card card-diagnosis-table">
-            <div class="card-header">
-                <h4 class="card-title">Accuracy</h4>
-            </div>
-
-            <div class="results-container">
-                <div class="result-icon">
-                    <span class="results-container icon">
-                        <i class="mdi mdi-24px mdi-percent-outline"></i>
-                    </span>
-                    <span>
-                        <span class="result-heading">Accuracy Score</span>
-                        <span class="result-number" id="accuracyScore"></span>%
-                    </span>
-                </div>
-
+                                <div class="results-container">
+                                    <div class="result-icon">
+                                        <span class="results-container icon">
+                                            <i class="mdi mdi-24px mdi-percent-outline"></i>
+                                        </span>
+                                        <span>
+                                            <span class="result-heading">Accuracy Score</span>
+                                            <span class="result-number" id="accuracyScore"></span>
+                                        </span>
+                                    </div>
                                     <p class="result-description">Accuracy score is a a measure of how well the
                                         algorithm
                                         predicts whether a skin spot is benign or malignant</p>
@@ -189,18 +187,21 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Result End -->
                 </div>
-                <!-- Result End -->
             </main>
+        </div>
 
-            <!-- JS -->
-            <script src="static/js/jquery.js"></script>
-            <script src="static/js/simplebar.js"></script>
-            <script src="static/js/waves.js"></script>
-            <script src="static/js/knob.js"></script>
-            <script src="static/js/preline.js"></script>
-            <script src="static/js/app.js"></script>
 
+    <!-- Page Content End -->
+    </div>
+    <!-- JS -->
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/simplebar.js"></script>
+    <script src="static/js/waves.js"></script>
+    <script src="static/js/knob.js"></script>
+    <script src="static/js/preline.js"></script>
+    <script src="static/js/app.js"></script>
     <!-- Script for handling form submission -->
     <script>
         document.getElementById("uploadForm").addEventListener("submit", function (event) {
@@ -262,11 +263,6 @@
         document.getElementById("results").style.display = "none";
         document.getElementById("imagePart").style.display = "none";
     </script>
-    
-    
-        </div>
-        <!-- Page Content End -->
-    </div>
 </body>
 
 </html>
