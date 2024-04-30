@@ -12,36 +12,32 @@ locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 
+# Allow image files to be submitted
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
+# Import the model
 model = tf.keras.models.load_model('model.h5')
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 def predict_image(file_path, model):
+    # Resize image file
     img = image.load_img(file_path, target_size=(224, 224))
+    # Convert the file into an array of values
     img_array = image.img_to_array(img)
     img_array = np.expand_dims(img_array, axis=0)
-    img_array /= 255.0  # Normalize the image
+    img_array /= 255.0  # And normalize the image
     
-    prediction = model.predict(img_array)
-    prediction_score = prediction[0][0]  # Assuming binary classification
+    prediction = model.predict(img_array) # Predict the array-converted image using the deployed model
+    prediction_score = prediction[0][0]  # Get prediction score in a form of binary classification
     
+    # Malignant and benign classifications
     if prediction_score > 0.5:
         result = "Malignant"
     else:
-        result = "Benign"
+        result = "Benign" # Results ranges from 0.49 to less than 0.01
     
-    if 0.001 <= prediction_score <= 0.02:
-        # Scale the value from 0-0.49 to 0-1 range relative to 0.49 as 100%
-        scaled_value = prediction_score / 0.49
-        scaled_value * 1000  # Percentage within the 0-0.49 range (0-100%)
-    elif 0.5 <= prediction_score <= 1:
-        # Existing logic for 0.5-1 range (considering 0.5 as 0% and 1 as 100%)
-        scaled_value = (prediction_score - 0.5) / (1 - 0.5)
-        scaled_value * 100
-    
-    return result, float(scaled_value)  # Ensure prediction_score is a regular Python float
+    return result, float(prediction_score)  # Ensure prediction_score is a float type
 
 
 
@@ -53,12 +49,6 @@ def index():
 def analyze_skin():
     return render_template('analyze-skin.html')
 
-# @app.route('/results')
-# def results():
-#     result = request.args.get('result')
-#     prediction_score = request.args.get('prediction_score')
-#     return render_template('results.html', result=result, prediction_score=prediction_score)
-
 @app.route('/skin-type')
 def skin_type():
     return render_template('skin-type.html')
@@ -68,22 +58,28 @@ def uv_index():
     return render_template('uv-index.html')
 
 @app.route('/upload', methods=['POST'])
+
+# File function
 def upload_file():
     if 'file' not in request.files:
         return jsonify({'error': 'No file part'})
-
+    # Get file from the website
     file = request.files['file']
 
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
+        # Use the 'uploads' folder to store the uploaded image
         file_path = os.path.join('uploads', filename)
 
         file.save(file_path)
 
+        # Predict the image using that function
         result, scaled_value = predict_image(file_path, model)
 
+        # Remove the image after analysis
         os.remove(file_path)
-
+        
+        # Display the response of the model
         return jsonify({'result': result, 'scaled_value': scaled_value})
     else:
         return jsonify({'error': 'Invalid file extension'})
