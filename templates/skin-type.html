@@ -25,7 +25,7 @@
         <!-- Menu Start -->
         <div class="app-menu">
             <!-- Logo -->
-            <a href="index.html" class="logo-box">
+            <a href="{{ url_for('index') }}" class="logo-box">
                 <img src="static/img/skinguard-logo-small.png">
             </a>
             <!--- Menu -->
@@ -34,7 +34,7 @@
                     <li class="menu-title">MENU</li>
 
                     <li class="menu-item">
-                        <a href="index.html" class="menu-link">
+                        <a href="{{ url_for('index') }}" class="menu-link">
                             <span class="menu-icon"><i class="mdi mdi-home-outline"></i></span>
                             <span class="menu-text"> Home </span>
                         </a>
@@ -465,12 +465,13 @@
             const form = document.getElementById("quizForm");
             const resultArea = document.getElementById("result-area");
 
+            // Hide all of the questions once the button for evaluation is clicked and display the results
             form.style.display = "none";
             resultArea.style.display = "block";
 
-            // Retake button
-            const retakeButton = document.getElementById("retake-button");
-            retakeButton.addEventListener("click", function () {
+            // Restart button
+            const restartBtn = document.getElementById("retake-button");
+            restartBtn.addEventListener("click", function () {
                 // Clear form 
                 form.reset();
 
@@ -480,7 +481,7 @@
             });
         }
 
-    // Dictionary of questions and their score modifiers
+        // Dictionary of questions and their score modifiers
         const form_questions = [
             {
                 name: "eye_color",
