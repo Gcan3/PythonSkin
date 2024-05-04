@@ -105,35 +105,274 @@
 
             <!-- Main Content Start -->
             <main class="main-body">
-                <h1>Animal Quiz</h1>
-                <p>Answer the following questions to find out which animal you are most like!</p>
-                <form id="quiz-form">
-                    <div class="card">
-                        <label class="card-header" for="question1">What is your favorite activity?</label>
-                        <br>
-                        <div class="radiobtn">
-                            <input type="radio" id="question1" name="question1" value="a">
-                            <span class="radio-text-margin"></span>
-                            <span>Sleeping in the sun</span>
-                        </div>
-                        <div class="radiobtn">
-                            <input type="radio" id="question1" name="question1" value="a">
-                            <span class="radio-text-margin"></span>
-                            <span>Sleeping in the sun</span>
-                        </div>
-                        <div class="radiobtn">
-                            <input type="radio" id="question1" name="question1" value="a">
-                            <span class="radio-text-margin"></span>
-                            <span>Sleeping in the sun</span>
-                        </div>
-                        <div class="radiobtn">
-                            <input type="radio" id="question1" name="question1" value="a">
-                            <span class="radio-text-margin"></span>
-                            <span>Sleeping in the sun</span>
+                <!-- Form Start -->
+                <form id="quizForm">
+                    <h1>Answer the following questions and find out the type of skin you have.</h1>
+                    <!-- Q1 -->
+                    <div class="card" id="question1">
+                        <label class="card-header" for="question1">What is your eye color?</label>
+                        <div class="card-choices">
+                            <div class="choice">
+                                <input type="radio" id="eye1" name="eye_color" class="radiobtn" value="choice1">
+                                <label class="radio-text-margin" for="eye1">(Light) blue, gray, or green</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="eye2" name="eye_color" class="radiobtn" value="choice2">
+                                <label class="radio-text-margin" for="eye2">Blue, gray, or green</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="eye3" name="eye_color" class="radiobtn" value="choice3">
+                                <label class="radio-text-margin" for="eye3">Hazel or light brown</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="eye4" name="eye_color" class="radiobtn" value="choice4">
+                                <label class="radio-text-margin" for="eye4">Dark brown</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="eye5" name="eye_color" class="radiobtn" value="choice5">
+                                <label class="radio-text-margin" for="eye5">Brownish Black</label>
+                            </div>
                         </div>
                     </div>
-                    <button type="submit">Submit Quiz</button>
+                    <!-- Q2 -->
+                    <div class="card" id="question2">
+                        <label class="card-header" for="question2">What is your natural hair color?</label>
+                        <div class="card-choices">
+                            <div class="choice">
+                                <input type="radio" id="hair1" name="hair_color" class="radiobtn" value="choice1">
+                                <label class="radio-text-margin" for="hair1">Red or light blond</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="hair2" name="hair_color" class="radiobtn" value="choice2">
+                                <label class="radio-text-margin" for="hair2">Blond</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="hair3" name="hair_color" class="radiobtn" value="choice3">
+                                <label class="radio-text-margin" for="hair3">Dark blond or light brown</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="hair4" name="hair_color" class="radiobtn" value="choice4">
+                                <label class="radio-text-margin" for="hair4">Dark brown</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="hair5" name="hair_color" class="radiobtn" value="choice5">
+                                <label class="radio-text-margin" for="hair5"> Black</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Q3 -->
+                    <div class="card" id="question3">
+                        <label class="card-header" for="question3">What is your natural skin color?</label>
+                        <div class="card-choices">
+                            <div class="choice">
+                                <input type="radio" id="skin1" name="skin_color" class="radiobtn" value="choice1">
+                                <label class="radio-text-margin" for="skin1">Ivory white</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="skin2" name="skin_color" class="radiobtn" value="choice2">
+                                <label class="radio-text-margin" for="skin2">Fair or pale</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="skin3" name="skin_color" class="radiobtn" value="choice3">
+                                <label class="radio-text-margin" for="skin3">Fair to beige with golden undertone</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="skin4" name="skin_color" class="radiobtn" value="choice4">
+                                <label class="radio-text-margin" for="skin4">Olive or light brown</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="skin5" name="skin_color" class="radiobtn" value="choice5">
+                                <label class="radio-text-margin" for="skin5">Dark brown or black</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Q4 -->
+                    <div class="card" id="question4">
+                        <label class="card-header" for="question4">How many freckles do you have on unexposed areas of your
+                            skin?</label>
+                        <div class="card-choices">
+                            <div class="choice">
+                                <input type="radio" id="freckle1" name="freckles" class="radiobtn" value="choice1">
+                                <label class="radio-text-margin" for="freckle1">50+</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="freckle2" name="freckles" class="radiobtn" value="choice2">
+                                <label class="radio-text-margin" for="freckle2">30-49</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="freckle3" name="freckles" class="radiobtn" value="choice3">
+                                <label class="radio-text-margin" for="freckle3">15-29</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="freckle4" name="freckles" class="radiobtn" value="choice4">
+                                <label class="radio-text-margin" for="freckle4">1-14</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="freckle5" name="freckles" class="radiobtn" value="choice5">
+                                <label class="radio-text-margin" for="freckle5">None</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Q5 -->
+                    <div class="card" id="question5">
+                        <label class="card-header" for="question5">How does your skin respond to sun exposure?</label>
+                        <div class="card-choices">
+                            <div class="choice">
+                                <input type="radio" id="expose1" name="sun_exposure" class="radiobtn" value="choice1">
+                                <label class="radio-text-margin" for="expose1">Always burns, blisters, and peels</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="expose2" name="sun_exposure" class="radiobtn" value="choice2">
+                                <label class="radio-text-margin" for="expose2">Often burns, blisters, and peels</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="expose3" name="sun_exposure" class="radiobtn" value="choice3">
+                                <label class="radio-text-margin" for="expose3">Sometimes burn</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="expose4" name="sun_exposure" class="radiobtn" value="choice4">
+                                <label class="radio-text-margin" for="expose4">Rarely burns</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="expose5" name="sun_exposure" class="radiobtn" value="choice5">
+                                <label class="radio-text-margin" for="expose5">Never burns</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Q6 -->
+                    <div class="card" id="question6">
+                        <label class="card-header" for="question6">Does your skin tan?</label>
+                        <div class="card-choices">
+                            <div class="choice">
+                                <input type="radio" id="tan1" name="skin_tan" class="radiobtn" value="choice1">
+                                <label class="radio-text-margin" for="tan1">Never, always burn</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="tan2" name="skin_tan" class="radiobtn" value="choice2">
+                                <label class="radio-text-margin" for="tan2">Seldom</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="tan3" name="skin_tan" class="radiobtn" value="choice3">
+                                <label class="radio-text-margin" for="tan3">Sometimes</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="tan4" name="skin_tan" class="radiobtn" value="choice4">
+                                <label class="radio-text-margin" for="tan4">Often</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="tan5" name="skin_tan" class="radiobtn" value="choice5">
+                                <label class="radio-text-margin" for="tan5">Always</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Q7 -->
+                    <div class="card" id="question7">
+                        <label class="card-header" for="question7">How deep are your tans</label>
+                        <div class="card-choices">
+                            <div class="choice">
+                                <input type="radio" id="deep1" name="deep_tans" class="radiobtn" value="choice1">
+                                <label class="radio-text-margin" for="deep1">My skin is naturally dark</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="deep2" name="deep_tans" class="radiobtn" value="choice2">
+                                <label class="radio-text-margin" for="deep2">Deep</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="deep3" name="deep_tans" class="radiobtn" value="choice3">
+                                <label class="radio-text-margin" for="deep3">Moderate</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="deep4" name="deep_tans" class="radiobtn" value="choice4">
+                                <label class="radio-text-margin" for="deep4">Just Light</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="deep5" name="deep_tans" class="radiobtn" value="choice5">
+                                <label class="radio-text-margin" for="deep5">Not at all</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Q8 -->
+                    <div class="card" id="question8">
+                        <label class="card-header" for="question8">How sensitive is your face to the sun?</label>
+                        <div class="card-choices">
+                            <div class="choice">
+                                <input type="radio" id="sense1" name="sun_sensitivity" class="radiobtn" value="choice1">
+                                <label class="radio-text-margin" for="sense1">Very resistant/no problems</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="sense2" name="sun_sensitivity" class="radiobtn" value="choice2">
+                                <label class="radio-text-margin" for="sense2">Quite resistant</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="sense3" name="sun_sensitivity" class="radiobtn" value="choice3">
+                                <label class="radio-text-margin" for="sense3">Normal</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="sense4" name="sun_sensitivity" class="radiobtn" value="choice4">
+                                <label class="radio-text-margin" for="sense4">Sensitive</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="sense5" name="sun_sensitivity" class="radiobtn" value="choice5">
+                                <label class="radio-text-margin" for="sense5">Very sensitive</label>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="skintypeResult()" id="submitButton" type="button" class="upload-button">Evaluate My Skin Type</button>
+                    <input type="hidden" id="skinType">
                 </form>
+                <!-- Form End -->
+                <!-- Result Content Start -->
+                <div class="card" id="result-area" style="display: none;">
+                    <div class="card-header">
+                        <h4 class="card-title">Skin Type Results</h4>
+                    </div>
+                    <div class="results-container">
+                        <div class="result-icon">
+                            <span class="results-container icon">
+                                <i class="mdi mdi-24px mdi-stethoscope"></i>
+                            </span>
+                            <span>
+                                <span class="result-heading">Your Skin type is most likely:</span>
+                                <span class="result-number" id="skin-result"></span>
+                            </span>
+                        </div>
+                        <p class="result-description" id="dry">
+                            Dry skin generally produces less natural oils than other types of skin. This may cause it to appear dull and become
+                            rough, flaky, or even scaly. It often feels tight or less elastic, noticeably dehydrated, and may be prone to showing
+                            more visible fine lines. In addition, it may become itchy or irritated.
+                        </p>
+                        <p class="result-description" id="oily">
+                            Oily skin produces an excess of sebum that causes the skin to appear shiny and feel greasy—especially throughout the
+                            T-zone (forehead, nose, and chin). People with oily skin may tend to have less wrinkles, according to the American
+                            Academy of Dermatology, but they may also be more prone to enlarged pores, acne blemishes, blackheads, and
+                            whiteheads.
+                        </p>
+                        <p class="result-description" id="normal">
+                            Normal skin is balanced—feeling neither too dry nor too oily. It is not prone to breakouts, flakiness, or feeling greasy
+                            or tight. People with normal skin typically have pores that are small, a smooth skin texture, and are less prone to
+                            sensitivity or blemishes. However, despite the fact that normal skin doesn’t have any specific issues or concerns, it
+                            still requires proper skincare to look and feel its best. The ideal normal skin routine helps maintain your skin’s
+                            hydration by locking in moisture and supporting your skin’s protective barrier.
+                        </p>
+                        <p class="result-description" id="sensitive">
+                            Sensitive skin is often referred to as a skin type, but it’s possible to have oily sensitive skin, dry sensitive skin,
+                            or normal sensitive skin. Regardless of which type of skin you have, if you have sensitive skin, it may appear red and
+                            feel like it's burning, itching, or dry. These symptoms may be related to having skin that is more vulnerable to
+                            external irritants and may be triggered by certain ingredients—like dyes or fragrance—as well as environmental factors.
+                        </p>
+                        <p class="result-description" id="combination">
+                            Combination skin includes areas that are dry as well as oily—with the T-zone commonly being oily, and the cheeks being
+                            either dry or normal. This skin type can vary during different seasons of the year, and due to various factors, such as
+                            stress or hormone fluctuation. Effective cleansing and hydration are key to care for skin that's oily or normal in some
+                            places and dry in others.
+                        </p>
+
+                        <button id="retake-button" class="upload-button">Retake Test</button>
+                    </div>
+
+                    
+                </div>
+                <!--  Result Content End -->
             </main>
             <!-- Main Content End -->
         </div>
@@ -148,9 +387,184 @@
     <script src="static/js/knob.js"></script>
     <script src="static/js/preline.js"></script>
     <script src="static/js/app.js"></script>
-    <!-- Script for handling form submission -->
+    <!-- Script for handling quiz form -->
     <script>
-        
+        function skintypeResult() {
+            // Make a score for the quiz form
+            let skinScore = 0;
+            let hasSelection = true; // Flag to track missing selections
+            // Loop through each question
+            for (const question of form_questions) {
+                // get the object value of the dictionary with the same name type
+                const radioButtons = document.querySelectorAll(`input[name="${question.name}"]`);
+                // console.log("Question:", question.name, "Selected Choice Value:", selectedChoice);
+                let selectedChoice = null; // Variable to store the selected value
+                // Check if any radio button is selected for the current question
+                radioButtons.forEach(radioButton => {
+                    if (radioButton.checked) {
+                        selectedChoice = radioButton.value;
+                        return; // Exit the loop if selection found
+                    }
+                });
+
+                if (!selectedChoice) {
+                    hasSelection = false;
+                    // Display error message (optional)
+                    console.error(`Missing selection for question: ${question.name}`);
+                }
+
+                // Calculate score only if a selection is made
+                if (selectedChoice) {
+                    skinScore += question.choices[selectedChoice];
+                    console.log("Question:", question.name, "Score:", skinScore);
+                }
+                // Prevent further processing and display an error message if there are missing selections
+                if (!hasSelection) {
+                    alert("Please answer all questions before submitting!");
+                    return;
+                }
+            }
+
+            // Determine skin type based on score ranges
+            let skinType = "";
+            if (skinScore <= -5) {
+                skinType = "Oily";
+            } else if (skinScore <= 0) {
+                skinType = "Combination";
+            } else if (skinScore <= 6) {
+                skinType = "Normal";
+            } else if (skinScore <= 10) {
+                skinType = "Sensitive";
+            } else if (skinScore <= 21) {
+                skinType = "Dry";
+            } else {
+                skinType = "Undefined"; // For handling unexpected scores
+            }
+
+            // console.log("Calculated Skin Type:", skinType);
+
+            // Change the hidden input element and display its result
+            document.getElementById("skinType").value = skinType;
+            document.getElementById("skin-result").textContent = skinType;
+            // Get the result details
+            const resultContainer = document.querySelector(".results-container");
+
+            // Hide all result descriptions first
+            const skinDetail = resultContainer.querySelectorAll(".result-description");
+            skinDetail.forEach(description => description.style.display = "none");
+
+            // Show the specific description based on skin type
+            const matchingSkin = document.getElementById(skinType.toLowerCase()); // Convert skin type to lowercase for matching
+            if (matchingSkin) {
+                matchingSkin.style.display = "block";
+            } else {
+                console.error("Unexpected skin type:", skinType); // Handle unexpected results (optional)
+            }
+
+            // Hide form and show result area
+            const form = document.getElementById("quizForm");
+            const resultArea = document.getElementById("result-area");
+
+            form.style.display = "none";
+            resultArea.style.display = "block";
+
+            // Retake button
+            const retakeButton = document.getElementById("retake-button");
+            retakeButton.addEventListener("click", function () {
+                // Clear form 
+                form.reset();
+
+                // Show the form and hide the result area
+                form.style.display = "block";
+                resultArea.style.display = "none";
+            });
+        }
+
+    // Dictionary of questions and their score modifiers
+        const form_questions = [
+            {
+                name: "eye_color",
+                choices: {
+                    choice1: 2,
+                    choice2: 0,
+                    choice3: -1,
+                    choice4: -2,
+                    choice5: -3
+                },
+            },
+            {
+                name: "hair_color",
+                choices: {
+                    choice1: 2,
+                    choice2: 1,
+                    choice3: 0,
+                    choice4: -1,
+                    choice5: -2
+                },
+            },
+            {
+                name: "skin_color",
+                choices: {
+                    choice1: 3,
+                    choice2: 2,
+                    choice3: 1,
+                    choice4: 0,
+                    choice5: -2
+                },
+            },
+            {
+                name: "freckles",
+                choices: {
+                    choice1: 2,
+                    choice2: 1,
+                    choice3: 0,
+                    choice4: 1,
+                    choice5: -1
+                },
+            },
+            {
+                name: "sun_exposure",
+                choices: {
+                    choice1: 3,
+                    choice2: 2,
+                    choice3: 1,
+                    choice4: 0,
+                    choice5: -2
+                },
+            },
+            {
+                name: "skin_tan",
+                choices: {
+                    choice1: 3,
+                    choice2: 2,
+                    choice3: 1,
+                    choice4: 0,
+                    choice5: -2
+                },
+            },
+            {
+                name: "deep_tans",
+                choices: {
+                    choice1: 3,
+                    choice2: 2,
+                    choice3: 1,
+                    choice4: 0,
+                    choice5: -2
+                },
+            },
+            {
+                name: "sun_sensitivity",
+                choices: {
+                    choice1: 3,
+                    choice2: 2,
+                    choice3: 1,
+                    choice4: 0,
+                    choice5: -2
+                },
+            }
+        ];
+
+
     </script>
 </body>
 
