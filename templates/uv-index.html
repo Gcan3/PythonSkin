@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | SkinGuard</title>
+    <title>UV | SkinGuard</title>
     <!-- Favicon -->
     <link rel="shortcut icon" type="x-icon" href="static/img/skinguard-favicon.svg">
     
@@ -86,7 +86,6 @@
 
         <!-- Page Content Start -->
         <div class="app-content">
-
             <!-- Heading Bar Start -->
             <header class="app-header">
 
@@ -107,163 +106,46 @@
                 <h4 class="header-font-title">Home</h4>
             </header>
             <!-- Heading Bar End -->
-
             <!-- Main Content Start -->
             <main class="main-body">
                 <!-- Upper Row -->
                 <div class="main-grid-row">
 
-                    <!-- Skin Image Start -->
+                    <!-- UV Start -->
                     <div class="card card-main-features">
                         <div class="card-header">
                             <h4 class="card-title">UV Index</h4>
                         </div>
+                        <!-- UV INDEX CONTENT START -->
+                        <section class="uv-index">
+                            <div class="uv-index-container">
+                                <div class="uv-index-info">
+                                    <p>Location: {{ location }}</p>
+                                    <p>Current UV Index: <span class="uv-index-number">{{ uv_index_data.current_uv_index }}</span></p>
+                                    <p>Maximum UV Index: <span class="uv-index-number">{{ uv_index_data.uv_max }}</span></p>
+                                </div>
+                            </div>
+                            <br>
+                        </section>
+                    </div>    
 
-
-<!-- UV INDEX CONTENT START -->
-<section class="uv-index">
-    <div class="uv-index-container">
-        <div class="uv-index-info">
-            <p>Location: {{ location }}</p>
-            <p>Current UV Index: <span class="uv-index-number">{{ uv_index_data.current_uv_index }}</span></p>
-            <p>Maximum UV Index: <span class="uv-index-number">{{ uv_index_data.uv_max }}</span></p>
-        </div>
-       <br>
-    </div>
-
-</section>
-<!-- UV INDEX CONTENT END -->
-<!-- <section class="uv-index">
-    <div class="uv-index-container">
-        <div class="uv-index-info">
-            <p>Current UV Index: {{ uv_index_data.current_uv_index }}</p>
-            <p class="uv-index-location">Location: User's Location</p>
-            <p>Today's Max UV Index: {{ uv_index_data.uv_max }}</p>
-        </div>
-        <div class="uv-index-bar">
-            <div class="uv-index-fill"></div>
-        </div>
-    </div>
-    <div class="additional-info">
-        <button id="updateUVIndexButton">Update UV Index</button>
-    </div>
-</section> -->
-
-
-
-
-
-
-
-                <!-- Lower Row -->
-                <div class="main-grid-row xl-grid-4-cols m-grid-2-cols">
-
-                    <!-- Resources Start -->
-                    <div class="card card-skin-photo">
-                        <div class="card-header flex justify-between items-center">
-                            <h4 class="card-title">Resources</h4>
+                </section>
+                <!-- UV INDEX CONTENT END -->
+                <!-- <section class="uv-index">
+                    <div class="uv-index-container">
+                        <div class="uv-index-info">
+                            <p>Current UV Index: {{ uv_index_data.current_uv_index }}</p>
+                            <p class="uv-index-location">Location: User's Location</p>
+                            <p>Today's Max UV Index: {{ uv_index_data.uv_max }}</p>
                         </div>
-                        <div class="card-container card-grid">
-                            <div class="card card-features card-resources">
-                                <div class="result-icon">
-                                    <span class="resources-container icon">
-                                        <i class="mdi mdi-24px mdi-web"></i>
-                                    </span>
-                                    <h5 class = "resources-heading">
-                                        Website
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="card card-features card-resources">
-                                <div class="result-icon">
-                                    <span class="resources-container icon">
-                                        <i class="mdi mdi-24px mdi-information-outline"></i>
-                                    </span>
-                                    <h5 class = "resources-heading">
-                                        Information Center
-                                    </h5>
-                                </div>
-                            </div>
-
-                            <div class="card card-features card-resources">
-                                <div class="result-icon">
-                                    <span class="resources-container icon">
-                                        <i class="mdi mdi-24px mdi-help"></i>
-                                    </span>
-                                    <h5 class = "resources-heading">
-                                        Help Center
-                                    </h5>
-                                </div>
-                            </div>
-
-                            <div class="card card-features card-resources">
-                                <div class="result-icon">
-                                    <span class="resources-container icon">
-                                        <i class="mdi mdi-24px mdi-email-outline"></i>
-                                    </span>
-                                    <h5 class = "resources-heading">
-                                        Email Us
-                                    </h5>
-                                </div>
-                            </div>
+                        <div class="uv-index-bar">
+                            <div class="uv-index-fill"></div>
                         </div>
                     </div>
-                    <!-- Resources End -->
-
-                    <!-- Resources Start -->
-                    <div class="card card-skin-photo">
-                        <div class="card-header flex justify-between items-center">
-                            <h4 class="card-title">Follow Us</h4>
-                        </div>
-
-                        <div class="card-container card-grid">
-                            <div class="card card-features card-resources">
-                                <div class="result-icon">
-                                    <span class="resources-container icon">
-                                        <i class="mdi mdi-24px mdi-linkedin"></i>
-                                    </span>
-                                    <h5 class = "resources-heading">
-                                        LinkedIn
-                                    </h5>
-                                </div>
-                            </div>
-
-                            <div class="card card-features card-resources">
-                                <div class="result-icon">
-                                    <span class="resources-container icon">
-                                        <i class="mdi mdi-24px mdi-instagram"></i>
-                                    </span>
-                                    <h5 class = "resources-heading">
-                                        Instagram
-                                    </h5>
-                                </div>
-                            </div>
-
-                            <div class="card card-features card-resources">
-                                <div class="result-icon">
-                                    <span class="resources-container icon">
-                                        <i class="mdi mdi-24px mdi-facebook"></i>
-                                    </span>
-                                    <h5 class = "resources-heading">
-                                        Facebook
-                                    </h5>
-                                </div>
-                            </div>
-
-                            <div class="card card-features card-resources">
-                                <div class="result-icon">
-                                    <span class="resources-container icon">
-                                        <i class="mdi mdi-24px mdi-whatsapp"></i>
-                                    </span>
-                                    <h5 class = "resources-heading">
-                                        WhatsApp
-                                    </h5>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="additional-info">
+                        <button id="updateUVIndexButton">Update UV Index</button>
                     </div>
-                    <!-- Resources End -->
-                </div>
+                </section> -->
             </main>
         </div>
         
