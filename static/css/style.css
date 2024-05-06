@@ -1624,3 +1624,62 @@ canvas {
         grid-column: span 1;
     }
 }
+
+
+.uv-index {
+    margin-top: 20px;
+}
+
+.section-title {
+    font-size: 24px;
+    color: #333;
+}
+
+.uv-index-container {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.uv-index-info {
+    position: relative;
+    display: inline-block;
+}
+
+.uv-index-value {
+    font-size: 36px;
+    font-weight: bold;
+    color: #ff9933; /* Adjust color as needed */
+}
+
+.uv-index-description {
+    font-size: 18px;
+    color: #666;
+}
+
+.uv-index-bar {
+    height: 20px;
+    width: 60%;
+    background-color: #f0f0f0; /* Background color for the bar */
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.additional-info {
+    margin-top: 10px;
+    text-align: center;
+}
+
+
+.additional-info p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #666;
+}
+/* CSS styles for the UV index numbers */
+.uv-index-number {
+    font-size: 36px; /* Increase the font size to make the numbers even bigger */
+    color: orange;   /* Change the color to orange */
+}
