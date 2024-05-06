@@ -48,6 +48,13 @@
                     </li>
 
                     <li class="menu-item">
+                        <a href="{{ url_for('risk_profile') }}" class="menu-link">
+                            <span class="menu-icon"><i class="mdi mdi-clipboard-account"></i></span>
+                            <span class="menu-text"> Risk Profile </span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
                         <a href="{{ url_for('skin_type') }}" class="menu-link">
                             <span class="menu-icon"><i class="mdi mdi-chart-bell-curve-cumulative"></i></span>
                             <span class="menu-text"> Skin Type </span>
@@ -322,7 +329,7 @@
                 </form>
                 <!-- Form End -->
                 <!-- Result Content Start -->
-                <div class="card" id="result-area" style="display: none;">
+                <div class="card" id="result-skinType" style="display: none;">
                     <div class="card-header">
                         <h4 class="card-title">Skin Type Results</h4>
                     </div>
@@ -366,11 +373,8 @@
                             stress or hormone fluctuation. Effective cleansing and hydration are key to care for skin that's oily or normal in some
                             places and dry in others.
                         </p>
-
-                        <button id="retake-button" class="upload-button">Retake Test</button>
-                    </div>
-
-                    
+                        <button id="retake-button" class="upload-button">Retake Test</button> or <a href="{{ url_for('risk_profile') }}"><button class="upload-button">Take Risk Profile Test</button></a>
+                    </div> 
                 </div>
                 <!--  Result Content End -->
             </main>
@@ -394,9 +398,9 @@
             let skinScore = 0;
             let hasSelection = true; // Flag to track missing selections
             // Loop through each question
-            for (const question of form_questions) {
+            for (const skin_question of form_questions) {
                 // get the object value of the dictionary with the same name type
-                const radioButtons = document.querySelectorAll(`input[name="${question.name}"]`);
+                const radioButtons = document.querySelectorAll(`input[name="${skin_question.name}"]`);
                 // console.log("Question:", question.name, "Selected Choice Value:", selectedChoice);
                 let selectedChoice = null; // Variable to store the selected value
                 // Check if any radio button is selected for the current question
@@ -410,13 +414,13 @@
                 if (!selectedChoice) {
                     hasSelection = false;
                     // Display error message (optional)
-                    console.error(`Missing selection for question: ${question.name}`);
+                    console.error(`Missing selection for question: ${skin_question.name}`);
                 }
 
                 // Calculate score only if a selection is made
                 if (selectedChoice) {
-                    skinScore += question.choices[selectedChoice];
-                    console.log("Question:", question.name, "Score:", skinScore);
+                    skinScore += skin_question.choices[selectedChoice];
+                    console.log("Question:", skin_question.name, "Score:", skinScore);
                 }
                 // Prevent further processing and display an error message if there are missing selections
                 if (!hasSelection) {
@@ -463,11 +467,11 @@
 
             // Hide form and show result area
             const form = document.getElementById("quizForm");
-            const resultArea = document.getElementById("result-area");
+            const resultSkinType = document.getElementById("result-skinType");
 
             // Hide all of the questions once the button for evaluation is clicked and display the results
             form.style.display = "none";
-            resultArea.style.display = "block";
+            resultSkinType.style.display = "block";
 
             // Restart button
             const restartBtn = document.getElementById("retake-button");
@@ -564,8 +568,6 @@
                 },
             }
         ];
-
-
     </script>
 </body>
 

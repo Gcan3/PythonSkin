@@ -8,6 +8,7 @@
 
 .card {
     margin-top: 5px;
+    height: auto;
 }
 
 .choice {
@@ -19,9 +20,9 @@
     margin: 10px;
 }
 
-#submitButton, #retake-button {
+.upload-button {
     margin: auto;
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 10px;
 }
 

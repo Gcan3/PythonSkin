@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" data-sidebar-color="light" data-topbar-color="light" data-sidebar-view="default">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Type | SkinGuard</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="x-icon" href="static/img/skinguard-favicon.svg">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="static/css/icons.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.min.css">
+    <link rel="stylesheet" href="static/css/form.css">
+
+    <!-- Head JS -->
+    <script src="static/js/head.js"></script>
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div class="app-wrapper">
+        <!-- Menu Start -->
+        <div class="app-menu">
+            <!-- Logo -->
+            <a href="{{ url_for('index') }}" class="logo-box">
+                <img src="static/img/skinguard-logo-small.png">
+            </a>
+            <!--- Menu -->
+            <div data-simplebar>
+                <ul class="menu">
+                    <li class="menu-title">MENU</li>
+
+                    <li class="menu-item">
+                        <a href="{{ url_for('index') }}" class="menu-link">
+                            <span class="menu-icon"><i class="mdi mdi-home-outline"></i></span>
+                            <span class="menu-text"> Home </span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="{{ url_for('analyze_skin') }}" class="menu-link">
+                            <span class="menu-icon"><i class="mdi mdi-magnify"></i></span>
+                            <span class="menu-text"> Analyze Skin </span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="{{ url_for('risk_profile') }}" class="menu-link">
+                            <span class="menu-icon"><i class="mdi mdi-clipboard-account"></i></span>
+                            <span class="menu-text"> Risk Profile </span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="{{ url_for('skin_type') }}" class="menu-link">
+                            <span class="menu-icon"><i class="mdi mdi-chart-bell-curve-cumulative"></i></span>
+                            <span class="menu-text"> Skin Type </span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="{{ url_for('uv_index') }}" class="menu-link">
+                            <span class="menu-icon"><i class="mdi mdi-weather-sunny"></i></span>
+                            <span class="menu-text"> UV Index </span>
+                        </a>
+                    </li>
+
+                    <li class="menu-title">INFORMATION</li>
+
+                    <li class="menu-item">
+                        <a href="https://skinguard-information-center.notaku.site/" target="_blank" class="menu-link">
+                            <span class="menu-icon"><i class="mdi mdi-information-outline"></i></span>
+                            <span class="menu-text"> Information Center </span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="https://skinguard-knowledge-base.notaku.site/" target="_blank" class="menu-link">
+                            <span class="menu-icon"><i class="mdi mdi-help"></i></span>
+                            <span class="menu-text"> Help Center </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Menu End -->
+
+        <!-- Page Content Start -->
+        <div class="app-content">
+            <!-- Heading Bar Start -->
+            <header class="app-header">
+                <!-- Brand Logo -->
+                <a href="{{ url_for('index') }}" class="logo-box">
+                    <img src="static/img/skinguard-single-logo.svg" class="small-logo" alt="Small logo">
+                </a>
+
+                <!-- Menu Toggle Button -->
+                <button id="button-toggle-menu" class="nav-link">
+                    <span class="hamburger-nav"></span>
+                    <span class="hamburger-nav-main">
+                        <i class="mdi mdi-24px mdi-menu"></i>
+                    </span>
+                </button>
+
+                <!-- Page Title -->
+                <h4 class="header-font-title">Skin Type</h4>
+            </header>
+            <!-- Heading Bar End -->
+
+            <!-- Main Content Start -->
+            <main class="main-body">
+                <!-- Form Start -->
+                <form id="quizForm">
+                    <h1>Answer the questions to find out your skin type and risk profile.</h1>
+                    <!-- Q1 -->
+                    <div class="card" id="question9">
+                        <label class="card-header" for="question1">Do you have more than 50 moles?</label>
+                        <div class="card-choices">
+                            <div class="choice">
+                                <input type="radio" id="mole1" name="mole-yn" class="radiobtn" value="choice1">
+                                <label class="radio-text-margin" for="mole1">Yes</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="mole2" name="mole-yn" class="radiobtn" value="choice2">
+                                <label class="radio-text-margin" for="mole2">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Q2 -->
+                    <div class="card" id="question10">
+                        <label class="card-header" for="question2">Do you have over 3 suspicious moles (different looking from other moles)</label>
+                        <div class="card-choices">
+                            <div class="choice">
+                                <input type="radio" id="susmole1" name="sus-mole" class="radiobtn" value="choice1">
+                                <label class="radio-text-margin" for="susmole1">Yes</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="susmole2" name="sus-mole" class="radiobtn" value="choice2">
+                                <label class="radio-text-margin" for="susmole2">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Q3 -->
+                    <div class="card" id="question11">
+                        <label class="card-header" for="question3">Do you have a pale skin that burns easily (potentially with red or light hair and freckles)?</label>
+                        <div class="card-choices">
+                            <div class="choice">
+                                <input type="radio" id="pale1" name="pale-burn" class="radiobtn" value="choice1">
+                                <label class="radio-text-margin" for="pale1">Yes</label>
+                            </div>
+                            <div class="choice">
+                                <input type="radio" id="pale2" name="pale-burn" class="radiobtn" value="choice2">
+                                <label class="radio-text-margin" for="pale2">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Q4 -->
+                    <div class="card" id="question12">
+                        <label class="card-header" for="question4">Have you experienced severe sunburns (with blisters) at least twice during your childhood?</label>
+                        <div class="card-choices">
+                            <div class="card-choices">
+                                <div class="choice">
+                                    <input type="radio" id="sun1" name="sun-burn" class="radiobtn" value="choice1">
+                                    <label class="radio-text-margin" for="sun1">Yes</label>
+                                </div>
+                                <div class="choice">
+                                    <input type="radio" id="sun2" name="sun-burn" class="radiobtn" value="choice2">
+                                    <label class="radio-text-margin" for="sun2">No</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Q5 -->
+                    <div class="card" id="question13">
+                        <label class="card-header" for="question5">On average, do you go outside for more than 2 hours a day without protecting your skin from sunlight (sunscreen or covering clothing)?</label>
+                        <div class="card-choices">
+                            <div class="card-choices">
+                                <div class="choice">
+                                    <input type="radio" id="protect1" name="skin-protect" class="radiobtn" value="choice1">
+                                    <label class="radio-text-margin" for="protect1">Yes</label>
+                                </div>
+                                <div class="choice">
+                                    <input type="radio" id="protect2" name="skin-protect" class="radiobtn" value="choice2">
+                                    <label class="radio-text-margin" for="protect2">No</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Q6 -->
+                    <div class="card" id="question14">
+                        <label class="card-header" for="question6">Have you ever been treated for one or multiple malignant moles or another form of skin cancer?</label>
+                        <div class="card-choices">
+                            <div class="card-choices">
+                                <div class="choice">
+                                    <input type="radio" id="malignant1" name="malignant-treat" class="radiobtn" value="choice1">
+                                    <label class="radio-text-margin" for="malignant1">Yes</label>
+                                </div>
+                                <div class="choice">
+                                    <input type="radio" id="malignant2" name="malignant-treat" class="radiobtn" value="choice2">
+                                    <label class="radio-text-margin" for="malignant2">No</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Q7 -->
+                    <div class="card" id="question15">
+                        <label class="card-header" for="question7">Do you have any parents or children that experienced malignant or suspicious moles?</label>
+                        <div class="card-choices">
+                            <div class="card-choices">
+                                <div class="choice">
+                                    <input type="radio" id="family1" name="family-mole" class="radiobtn" value="choice1">
+                                    <label class="radio-text-margin" for="family1">Yes</label>
+                                </div>
+                                <div class="choice">
+                                    <input type="radio" id="family2" name="family-mole" class="radiobtn" value="choice2">
+                                    <label class="radio-text-margin" for="family2">No</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Q8 -->
+                    <div class="card" id="question16">
+                        <label class="card-header" for="question8">Have any of your parents or children suffered from pancreatic cancer?</label>
+                        <div class="card-choices">
+                            <div class="card-choices">
+                                <div class="choice">
+                                    <input type="radio" id="pancreatic1" name="pancreatic-family" class="radiobtn" value="choice1">
+                                    <label class="radio-text-margin" for="pancreatic1">Yes</label>
+                                </div>
+                                <div class="choice">
+                                    <input type="radio" id="pancreatic2" name="pancreatic-family" class="radiobtn" value="choice2">
+                                    <label class="radio-text-margin" for="pancreatic2">No</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="risktypeResult()" id="submitButton" type="button" class="upload-button">Evaluate My
+                        Risk Type</button>
+                    <input type="hidden" id="riskType">
+                </form>
+                <!-- Form End -->
+                <!-- Result Content Start -->
+                <div class="card" id="result-area" style="display: none;">
+                    <div class="card-header">
+                        <h4 class="card-title">Risk Profile</h4>
+                    </div>
+                    <div class="results-container">
+                        <div class="result-icon">
+                            <span class="results-container icon">
+                                <i class="mdi mdi-24px mdi-stethoscope"></i>
+                            </span>
+                            <span>
+                                <span class="result-heading">Your risk profile is most likely:</span>
+                                <span class="result-number" id="risk-result"></span>
+                            </span>
+                        </div>
+                        <p class="result-description" id="low">
+                            There is almost nothing to worry about as you are in almost no risk to having skin cancer. It is still advisable regularly check on the changes from your skin.
+                        </p>
+                        <p class="result-description" id="medium">
+                            Your skin is relatively fine but prevention must be conducted. There are many prevention methods to getting skin cancer such as not
+                            using indoor tanning machines, cover up with clothes when going outside, staying out of the sun during high U.V. indexes.
+                        </p>
+                        <p class="result-description" id="high">
+                            Your skin is at high risk to getting skin cancer. To lower your risk of getting skin cancer, you can protect your skin from UV rays from the sun, and avoid artificial
+                            sources of UV exposure like tanning beds and sunlamps. Furthermore, consulting the professional medical help on your skin might be
+                            needed.
+                        </p>
+                
+                        <button id="retake-button" class="upload-button">Retake Test</button> or <a href="{{ url_for('skin_type') }}"><button class="upload-button">Take Skin Type Test</button></a>
+                    </div>
+                </div>
+                <!--  Result Content End -->
+            </main>
+            <!-- Main Content End -->
+        </div>
+        <!-- Page Content End -->
+    </div>
+
+    <!-- JS -->
+    <script src="static/js/jquery.js"></script>
+    <script src="static/js/simplebar.js"></script>
+    <script src="static/js/waves.js"></script>
+    <script src="static/js/knob.js"></script>
+    <script src="static/js/preline.js"></script>
+    <script src="static/js/app.js"></script>
+    <!-- Script for handling quiz form -->
+    <script>
+        function risktypeResult() {
+            // Make a score for the quiz form
+            let riskScore = 0;
+            let hasSelection = true; // Flag to track missing selections
+            // Loop through each question
+            for (const question of risk_form_questions) {
+                // get the object value of the dictionary with the same name type
+                const radioButtons = document.querySelectorAll(`input[name="${question.name}"]`);
+                // console.log("Question:", question.name, "Selected Choice Value:", selectedChoice);
+                let selectedChoice = null; // Variable to store the selected value
+                // Check if any radio button is selected for the current question
+                radioButtons.forEach(radioButton => {
+                    if (radioButton.checked) {
+                        selectedChoice = radioButton.value;
+                        return; // Exit the loop if selection found
+                    }
+                });
+
+                if (!selectedChoice) {
+                    hasSelection = false;
+                    // Display error message (optional)
+                    console.error(`Missing selection for question: ${question.name}`);
+                }
+
+                // Calculate score only if a selection is made
+                if (selectedChoice) {
+                    riskScore += question.choices[selectedChoice];
+                    console.log("Question:", question.name, "Score:", riskScore);
+                }
+                // Prevent further processing and display an error message if there are missing selections
+                if (!hasSelection) {
+                    alert("Please answer all questions before submitting!");
+                    return;
+                }
+            }
+
+            // Determine skin type based on score ranges
+            let riskType = "";
+            if (riskScore <= -4) {
+                riskType = "Low";
+            } else if (riskScore <= 4) {
+                riskType = "Medium";
+            } else if (riskScore <= 8) {
+                riskType = "High";
+            } else {
+                riskType = "Undefined"; // For handling unexpected scores
+            }
+
+            // console.log("Calculated Skin Type:", riskType);
+
+            // Change the hidden input element and display its result
+            document.getElementById("riskType").value = riskType;
+            document.getElementById("risk-result").textContent = riskType;
+            // Get the result details
+            const resultContainer = document.querySelector(".results-container");
+
+            // Hide all result descriptions first
+            const riskDetail = resultContainer.querySelectorAll(".result-description");
+            riskDetail.forEach(description => description.style.display = "none");
+
+            // Show the specific description based on skin type
+            const matchingRisk = document.getElementById(riskType.toLowerCase()); // Convert skin type to lowercase for matching
+            if (matchingRisk) {
+                matchingRisk.style.display = "block";
+            } else {
+                console.error("Unexpected skin type:", riskType); // Handle unexpected results (optional)
+            }
+
+            // Hide form and show result area
+            const form = document.getElementById("quizForm");
+            const resultArea = document.getElementById("result-area");
+
+            // Hide all of the questions once the button for evaluation is clicked and display the results
+            form.style.display = "none";
+            resultArea.style.display = "block";
+
+            // Restart button
+            const restartBtn = document.getElementById("retake-button");
+            restartBtn.addEventListener("click", function () {
+                // Clear form 
+                form.reset();
+
+                // Show the form and hide the result area
+                form.style.display = "block";
+                resultArea.style.display = "none";
+            });
+        }
+
+        // Dictionary of risk profile questions and their score modifiers
+        const risk_form_questions = [
+            {
+                name: "mole-yn",
+                choices: {
+                    choice1: 1,
+                    choice2: -1
+                },
+            },
+            {
+                name: "sus-mole",
+                choices: {
+                    choice1: 1,
+                    choice2: -1
+                },
+            },
+            {
+                name: "pale-burn",
+                choices: {
+                    choice1: 1,
+                    choice2: -1
+                },
+            },
+            {
+                name: "sun-burn",
+                choices: {
+                    choice1: 1,
+                    choice2: -1
+                },
+            },
+            {
+                name: "skin-protect",
+                choices: {
+                    choice1: 1,
+                    choice2: -1
+                },
+            },
+            {
+                name: "malignant-treat",
+                choices: {
+                    choice1: 1,
+                    choice2: -1
+                },
+            },
+            {
+                name: "family-mole",
+                choices: {
+                    choice1: 1,
+                    choice2: -1
+                },
+            },
+            {
+                name: "pancreatic-family",
+                choices: {
+                    choice1: 1,
+                    choice2: -1
+                },
+            }
+        ];
+        
+        
+
+    </script>
+</body>
+
+</html>

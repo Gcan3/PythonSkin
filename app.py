@@ -49,6 +49,10 @@ def index():
 def analyze_skin():
     return render_template('analyze-skin.html')
 
+@app.route('/risk-profile')
+def risk_profile():
+    return render_template('risk-profile.html')
+
 @app.route('/skin-type')
 def skin_type():
     return render_template('skin-type.html')
