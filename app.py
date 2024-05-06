@@ -24,8 +24,8 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 model = tf.keras.models.load_model('model.h5')
 
 # API key for OpenUV
-OPENUV_API_KEY = 'openuv-11bvz3rlvm6g1gn-io'  # Replace this with your actual API key
-
+OPENUV_API_KEY = 'openuv-16y3p3rlvv77rcs-io'  # Replace this with your actual API key
+#api key 1 openuv-11bvz3rlvm6g1gn-io
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
@@ -153,9 +153,9 @@ def uv_index():
 
     print("UV Index Data:", uv_index_data)  # Add this line for debugging
 
-    # Render the 'uv-index.html' template and pass UV index data and location to it
-    return render_template('uv-index.html', uv_index_data=uv_index_data, location=location)
 
+    # Render the 'uv-index.html' template and pass UV index data, location, and description to it
+    return render_template('uv-index.html', uv_index_data=uv_index_data, location=location)
 def get_uv_index(lat, lon):
     headers = {'x-access-token': OPENUV_API_KEY}
     url = f"https://api.openuv.io/api/v1/uv?lat={lat}&lng={lon}"
@@ -181,8 +181,8 @@ def get_place_from_geopy(lat, lon):
     try:
         geolocator = Nominatim(user_agent="coordinateconverter")
         location = geolocator.reverse((lat, lon), language='en')
-        print("Location:", location)  # Add this line for debugging
-        print("Raw data:", location.raw)  # Add this line for debugging
+        print("Location:", location)  #line for debugging
+        print("Raw data:", location.raw)  #line for debugging
         if location:
             city = location.raw['address'].get('city')
             country = location.raw['address'].get('country')
@@ -197,7 +197,6 @@ def get_place_from_geopy(lat, lon):
     except Exception as e:
         print(f"Error getting place from Geopy: {e}")
         return None
-
 
 
 if __name__ == '__main__':

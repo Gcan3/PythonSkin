@@ -121,8 +121,24 @@
                             <div class="uv-index-container">
                                 <div class="uv-index-info">
                                     <p>Location: {{ location }}</p>
-                                    <p>Current UV Index: <span class="uv-index-number">{{ uv_index_data.current_uv_index }}</span></p>
-                                    <p>Maximum UV Index: <span class="uv-index-number">{{ uv_index_data.uv_max }}</span></p>
+                                    <p>Current UV Index Today: <span class="uv-index-number">{{ uv_index_data.current_uv_index }}</span></p>
+                                    <p>Maximum UV Index Reached Today: <span class="uv-index-number">{{ uv_index_data.uv_max }}</span></p>
+                                    <div class="uv-index-description">
+                                        <p>
+                                            {% if uv_index_data.current_uv_index < 3 %}
+                                                <img src="{{ url_for('static', filename='img/low_uv_index_icon.jpg') }}" alt="Low UV Index Icon" class="uv-index-icon">With a low UV Index from 0 to 2, there is hardly any risk of sunburn.
+                                            {% elif uv_index_data.current_uv_index <= 5 %}
+                                                <img src="{{ url_for('static', filename='img/medium_uv_index_icon.jpg') }}" alt="Medium UV Index Icon" class="uv-index-icon">With a medium UV Index of 3 to 5, wearing protective clothing (shirt, T-shirt, blouse) is recommended.
+                                            {% elif uv_index_data.current_uv_index <= 7 %}
+                                                <img src="{{ url_for('static', filename='img/high_uv_index_icon.jpg') }}" alt="High UV Index Icon" class="uv-index-icon"> With a high UV Index of 6 to 7, you should definitely cover your upper body.
+                                            {% elif uv_index_data.current_uv_index <= 10 %}
+                                                <img src="{{ url_for('static', filename='img/very_high_uv_index_icon.jpg') }}" alt="Very High UV Index Icon" class="uv-index-icon"> Avoid staying outside in the hours between 11am and 3pm in the case of a very high UV Index of 8 to 10.
+                                            {% else %}
+                                                <img src="{{ url_for('static', filename='img/extreme_uv_index_icon.jpg') }}" alt="Extreme UV Index Icon" class="uv-index-icon"> With an extremely high UV Index of 11, 12 and higher, you should definitely avoid the sun during the lunch hours and stay indoors.
+                                            {% endif %}
+                                        </p>
+                                    </div>
+                                    
                                 </div>
                             </div>
                             <br>
@@ -130,25 +146,7 @@
                     </div>    
 
                 </section>
-                <!-- UV INDEX CONTENT END -->
-                <!-- <section class="uv-index">
-                    <div class="uv-index-container">
-                        <div class="uv-index-info">
-                            <p>Current UV Index: {{ uv_index_data.current_uv_index }}</p>
-                            <p class="uv-index-location">Location: User's Location</p>
-                            <p>Today's Max UV Index: {{ uv_index_data.uv_max }}</p>
-                        </div>
-                        <div class="uv-index-bar">
-                            <div class="uv-index-fill"></div>
-                        </div>
-                    </div>
-                    <div class="additional-info">
-                        <button id="updateUVIndexButton">Update UV Index</button>
-                    </div>
-                </section> -->
-            </main>
-        </div>
-        
+
             
         <script src="static/js/jquery.js"></script>
         <script src="static/js/simplebar.js"></script>
@@ -158,19 +156,6 @@
         <script src="static/js/app.js"></script>
    
         <script>
-// Add event listener to the button
-document.getElementById('updateUVIndexButton').addEventListener('click', function() {
-    // Fetch user's location
-    fetch('https://ipapi.co/json/')
-        .then(response => response.json())
-        .then(data => {
-            const lat = data.latitude;
-            const lon = data.longitude;
-            updateUVIndex(lat, lon); // Call updateUVIndex function with obtained coordinates
-        })
-        .catch(error => console.error('Error fetching user location:', error));
-});
-
 // Define the function to update UV index
 function updateUVIndex(lat, lon) {
     fetch(`/uv-index?lat=${lat}&lon=${lon}`) // Use backticks for string interpolation
@@ -184,8 +169,6 @@ function updateUVIndex(lat, lon) {
         })
         .catch(error => console.error('Error fetching UV index data:', error));
 }
-
-
         </script>
 </body>
 </html>
