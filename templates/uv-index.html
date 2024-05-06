@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" data-sidebar-color="light" data-topbar-color="light" data-sidebar-view="default">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | SkinGuard</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="x-icon" href="static/img/skinguard-favicon.svg">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="static/css/icons.css">
+    <link rel="stylesheet" href="static/css/style.css">
+
+    <!-- Head JS -->
+    <script src="static/js/head.js"></script>
+</head>
+<body>
+    <!-- Wrapper -->
+    <div class="app-wrapper">
+        <!-- Menu Start -->
+        <div class="app-menu">
+            <!-- Logo -->
+            <a href="index.html" class="logo-box">
+                <img src="static/img/skinguard-logo-small.png">
+            </a>
+            <!--- Menu -->
+            <div data-simplebar>
+                <ul class="menu">
+                    <li class="menu-title">MENU</li>
+
+                    <li class="menu-item">
+                        <a href="index.html" class="menu-link">
+                            <span class="menu-icon"><i class="mdi mdi-home-outline"></i></span>
+                            <span class="menu-text"> Home </span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="{{ url_for('analyze_skin') }}" class="menu-link">
+                            <span class="menu-icon"><i class="mdi mdi-magnify"></i></span>
+                            <span class="menu-text"> Analyze Skin </span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="{{ url_for('skin_type') }}" class="menu-link">
+                            <span class="menu-icon"><i class="mdi mdi-chart-bell-curve-cumulative"></i></span>
+                            <span class="menu-text"> Skin Type </span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="{{ url_for('uv_index') }}" class="menu-link">
+                            <span class="menu-icon"><i class="mdi mdi-weather-sunny"></i></span>
+                            <span class="menu-text"> UV Index </span>
+                        </a>
+                    </li>
+
+                    <li class="menu-title">INFORMATION</li>
+
+                    <li class="menu-item">
+                        <a href="https://skinguard-information-center.notaku.site/" target="_blank" class="menu-link">
+                            <span class="menu-icon"><i class="mdi mdi-information-outline"></i></span>
+                            <span class="menu-text"> Information Center </span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="https://skinguard-knowledge-base.notaku.site/" target="_blank" class="menu-link">
+                            <span class="menu-icon"><i class="mdi mdi-help"></i></span>
+                            <span class="menu-text"> Help Center </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Menu End -->
+
+        <!-- Page Content Start -->
+        <div class="app-content">
+
+            <!-- Heading Bar Start -->
+            <header class="app-header">
+
+                <!-- Brand Logo -->
+                <a href="index.html" class="logo-box">
+                    <img src="static/img/skinguard-single-logo.svg" class="small-logo" alt="Small logo">
+                </a>
+
+                <!-- Menu Toggle Button -->
+                <button id="button-toggle-menu" class="nav-link">
+                    <span class="hamburger-nav"></span>
+                    <span class="hamburger-nav-main">
+                        <i class="mdi mdi-24px mdi-menu"></i>
+                    </span>
+                </button>
+
+                <!-- Page Title -->
+                <h4 class="header-font-title">Home</h4>
+            </header>
+            <!-- Heading Bar End -->
+
+            <!-- Main Content Start -->
+            <main class="main-body">
+                <!-- Upper Row -->
+                <div class="main-grid-row">
+
+                    <!-- Skin Image Start -->
+                    <div class="card card-main-features">
+                        <div class="card-header">
+                            <h4 class="card-title">UV Index</h4>
+                        </div>
+
+
+<!-- UV INDEX CONTENT START -->
+<section class="uv-index">
+    <div class="uv-index-container">
+        <div class="uv-index-info">
+            <p>Location: {{ location }}</p>
+            <p>Current UV Index: <span class="uv-index-number">{{ uv_index_data.current_uv_index }}</span></p>
+            <p>Maximum UV Index: <span class="uv-index-number">{{ uv_index_data.uv_max }}</span></p>
+        </div>
+       <br>
+    </div>
+
+</section>
+<!-- UV INDEX CONTENT END -->
+<!-- <section class="uv-index">
+    <div class="uv-index-container">
+        <div class="uv-index-info">
+            <p>Current UV Index: {{ uv_index_data.current_uv_index }}</p>
+            <p class="uv-index-location">Location: User's Location</p>
+            <p>Today's Max UV Index: {{ uv_index_data.uv_max }}</p>
+        </div>
+        <div class="uv-index-bar">
+            <div class="uv-index-fill"></div>
+        </div>
+    </div>
+    <div class="additional-info">
+        <button id="updateUVIndexButton">Update UV Index</button>
+    </div>
+</section> -->
+
+
+
+
+
+
+
+                <!-- Lower Row -->
+                <div class="main-grid-row xl-grid-4-cols m-grid-2-cols">
+
+                    <!-- Resources Start -->
+                    <div class="card card-skin-photo">
+                        <div class="card-header flex justify-between items-center">
+                            <h4 class="card-title">Resources</h4>
+                        </div>
+                        <div class="card-container card-grid">
+                            <div class="card card-features card-resources">
+                                <div class="result-icon">
+                                    <span class="resources-container icon">
+                                        <i class="mdi mdi-24px mdi-web"></i>
+                                    </span>
+                                    <h5 class = "resources-heading">
+                                        Website
+                                    </h5>
+                                </div>
+                            </div>
+                            <div class="card card-features card-resources">
+                                <div class="result-icon">
+                                    <span class="resources-container icon">
+                                        <i class="mdi mdi-24px mdi-information-outline"></i>
+                                    </span>
+                                    <h5 class = "resources-heading">
+                                        Information Center
+                                    </h5>
+                                </div>
+                            </div>
+
+                            <div class="card card-features card-resources">
+                                <div class="result-icon">
+                                    <span class="resources-container icon">
+                                        <i class="mdi mdi-24px mdi-help"></i>
+                                    </span>
+                                    <h5 class = "resources-heading">
+                                        Help Center
+                                    </h5>
+                                </div>
+                            </div>
+
+                            <div class="card card-features card-resources">
+                                <div class="result-icon">
+                                    <span class="resources-container icon">
+                                        <i class="mdi mdi-24px mdi-email-outline"></i>
+                                    </span>
+                                    <h5 class = "resources-heading">
+                                        Email Us
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Resources End -->
+
+                    <!-- Resources Start -->
+                    <div class="card card-skin-photo">
+                        <div class="card-header flex justify-between items-center">
+                            <h4 class="card-title">Follow Us</h4>
+                        </div>
+
+                        <div class="card-container card-grid">
+                            <div class="card card-features card-resources">
+                                <div class="result-icon">
+                                    <span class="resources-container icon">
+                                        <i class="mdi mdi-24px mdi-linkedin"></i>
+                                    </span>
+                                    <h5 class = "resources-heading">
+                                        LinkedIn
+                                    </h5>
+                                </div>
+                            </div>
+
+                            <div class="card card-features card-resources">
+                                <div class="result-icon">
+                                    <span class="resources-container icon">
+                                        <i class="mdi mdi-24px mdi-instagram"></i>
+                                    </span>
+                                    <h5 class = "resources-heading">
+                                        Instagram
+                                    </h5>
+                                </div>
+                            </div>
+
+                            <div class="card card-features card-resources">
+                                <div class="result-icon">
+                                    <span class="resources-container icon">
+                                        <i class="mdi mdi-24px mdi-facebook"></i>
+                                    </span>
+                                    <h5 class = "resources-heading">
+                                        Facebook
+                                    </h5>
+                                </div>
+                            </div>
+
+                            <div class="card card-features card-resources">
+                                <div class="result-icon">
+                                    <span class="resources-container icon">
+                                        <i class="mdi mdi-24px mdi-whatsapp"></i>
+                                    </span>
+                                    <h5 class = "resources-heading">
+                                        WhatsApp
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Resources End -->
+                </div>
+            </main>
+        </div>
+        
+            
+        <script src="static/js/jquery.js"></script>
+        <script src="static/js/simplebar.js"></script>
+        <script src="static/js/waves.js"></script>
+        <script src="static/js/knob.js"></script>
+        <script src="static/js/preline.js"></script>
+        <script src="static/js/app.js"></script>
+   
+        <script>
+// Add event listener to the button
+document.getElementById('updateUVIndexButton').addEventListener('click', function() {
+    // Fetch user's location
+    fetch('https://ipapi.co/json/')
+        .then(response => response.json())
+        .then(data => {
+            const lat = data.latitude;
+            const lon = data.longitude;
+            updateUVIndex(lat, lon); // Call updateUVIndex function with obtained coordinates
+        })
+        .catch(error => console.error('Error fetching user location:', error));
+});
+
+// Define the function to update UV index
+function updateUVIndex(lat, lon) {
+    fetch(`/uv-index?lat=${lat}&lon=${lon}`) // Use backticks for string interpolation
+        .then(response => {
+            // Check if the response is HTML instead of JSON
+            if (response.redirected) {
+                window.location.href = response.url; // Redirect to the UV index page
+            } else {
+                console.error('Error: Invalid response format');
+            }
+        })
+        .catch(error => console.error('Error fetching UV index data:', error));
+}
+
+
+        </script>
+</body>
+</html>
