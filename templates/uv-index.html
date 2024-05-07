@@ -110,7 +110,6 @@
             <main class="main-body">
                 <!-- Upper Row -->
                 <div class="main-grid-row">
-
                     <!-- UV Start -->
                     <div class="card card-main-features">
                         <div class="card-header">
@@ -144,9 +143,8 @@
                             <br>
                         </section>
                     </div>    
-
-                </section>
-
+                </div>
+            </main>
             
         <script src="static/js/jquery.js"></script>
         <script src="static/js/simplebar.js"></script>
@@ -156,19 +154,19 @@
         <script src="static/js/app.js"></script>
    
         <script>
-// Define the function to update UV index
-function updateUVIndex(lat, lon) {
-    fetch(`/uv-index?lat=${lat}&lon=${lon}`) // Use backticks for string interpolation
-        .then(response => {
-            // Check if the response is HTML instead of JSON
-            if (response.redirected) {
-                window.location.href = response.url; // Redirect to the UV index page
-            } else {
-                console.error('Error: Invalid response format');
+            // Define the function to update UV index
+            function updateUVIndex(lat, lon) {
+                fetch(`/uv-index?lat=${lat}&lon=${lon}`) // Use backticks for string interpolation
+                    .then(response => {
+                        // Check if the response is HTML instead of JSON
+                        if (response.redirected) {
+                            window.location.href = response.url; // Redirect to the UV index page
+                        } else {
+                            console.error('Error: Invalid response format');
+                        }
+                    })
+                    .catch(error => console.error('Error fetching UV index data:', error));
             }
-        })
-        .catch(error => console.error('Error fetching UV index data:', error));
-}
         </script>
 </body>
 </html>
