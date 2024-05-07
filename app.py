@@ -156,6 +156,7 @@ def uv_index():
 
     # Render the 'uv-index.html' template and pass UV index data, location, and description to it
     return render_template('uv-index.html', uv_index_data=uv_index_data, location=location)
+
 def get_uv_index(lat, lon):
     headers = {'x-access-token': OPENUV_API_KEY}
     url = f"https://api.openuv.io/api/v1/uv?lat={lat}&lng={lon}"
