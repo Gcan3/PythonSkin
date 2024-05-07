@@ -11,6 +11,8 @@
     <!-- CSS -->
     <link rel="stylesheet" href="static/css/icons.css">
     <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.min.css">
+    <link rel="stylesheet" href="static/css/form.css">
 
     <!-- Head JS -->
     <script src="static/js/head.js"></script>
@@ -21,58 +23,58 @@
         <!-- Menu Start -->
         <div class="app-menu">
             <!-- Logo -->
-            <a href="index.html" class="logo-box">
+            <a href="{{ url_for('index') }}" class="logo-box">
                 <img src="static/img/skinguard-logo-small.png">
             </a>
             <!--- Menu -->
             <div data-simplebar>
                 <ul class="menu">
                     <li class="menu-title">MENU</li>
-
+        
                     <li class="menu-item">
-                        <a href="index.html" class="menu-link">
+                        <a href="{{ url_for('index') }}" class="menu-link">
                             <span class="menu-icon"><i class="mdi mdi-home-outline"></i></span>
                             <span class="menu-text"> Home </span>
                         </a>
                     </li>
-
+        
                     <li class="menu-item">
                         <a href="{{ url_for('analyze_skin') }}" class="menu-link">
                             <span class="menu-icon"><i class="mdi mdi-magnify"></i></span>
                             <span class="menu-text"> Analyze Skin </span>
                         </a>
                     </li>
-
+        
                     <li class="menu-item">
                         <a href="{{ url_for('risk_profile') }}" class="menu-link">
                             <span class="menu-icon"><i class="mdi mdi-clipboard-account"></i></span>
                             <span class="menu-text"> Risk Profile </span>
                         </a>
                     </li>
-
+        
                     <li class="menu-item">
                         <a href="{{ url_for('skin_type') }}" class="menu-link">
                             <span class="menu-icon"><i class="mdi mdi-chart-bell-curve-cumulative"></i></span>
                             <span class="menu-text"> Skin Type </span>
                         </a>
                     </li>
-
+        
                     <li class="menu-item">
                         <a href="{{ url_for('uv_index') }}" class="menu-link">
                             <span class="menu-icon"><i class="mdi mdi-weather-sunny"></i></span>
                             <span class="menu-text"> UV Index </span>
                         </a>
                     </li>
-
+        
                     <li class="menu-title">INFORMATION</li>
-
+        
                     <li class="menu-item">
                         <a href="https://skinguard-information-center.notaku.site/" target="_blank" class="menu-link">
                             <span class="menu-icon"><i class="mdi mdi-information-outline"></i></span>
                             <span class="menu-text"> Information Center </span>
                         </a>
                     </li>
-
+        
                     <li class="menu-item">
                         <a href="https://skinguard-knowledge-base.notaku.site/" target="_blank" class="menu-link">
                             <span class="menu-icon"><i class="mdi mdi-help"></i></span>
@@ -82,18 +84,17 @@
                 </ul>
             </div>
         </div>
+
         <!-- Menu End -->
 
         <!-- Page Content Start -->
         <div class="app-content">
             <!-- Heading Bar Start -->
             <header class="app-header">
-
                 <!-- Brand Logo -->
-                <a href="index.html" class="logo-box">
+                <a href="{{ url_for('index') }}" class="logo-box">
                     <img src="static/img/skinguard-single-logo.svg" class="small-logo" alt="Small logo">
                 </a>
-
                 <!-- Menu Toggle Button -->
                 <button id="button-toggle-menu" class="nav-link">
                     <span class="hamburger-nav"></span>
@@ -107,9 +108,7 @@
             </header>
             <!-- Heading Bar End -->
             <!-- Main Content Start -->
-            <main class="main-body">
-                <!-- Upper Row -->
-                <div class="main-grid-row">
+            <main class="main-body">               
                     <!-- UV Start -->
                     <div class="card card-main-features">
                         <div class="card-header">
@@ -137,14 +136,13 @@
                                             {% endif %}
                                         </p>
                                     </div>
-                                    
                                 </div>
                             </div>
-                            <br>
                         </section>
-                    </div>    
-                </div>
+                    </div>
             </main>
+        </div>
+    </div>
             
         <script src="static/js/jquery.js"></script>
         <script src="static/js/simplebar.js"></script>
