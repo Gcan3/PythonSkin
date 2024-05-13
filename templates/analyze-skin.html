@@ -228,10 +228,22 @@
                                             class=" transition-all duration-300 transform active" role="tabpanel"
                                             aria-labelledby="tabs-with-underline-item-1">
                                             <p class="result-benign" style="display: none;">
-                                                When a spot is classified as <strong>"benign,"</strong> it means that the analysis indicates the spot is <strong>non-cancerous</strong> and does not pose an immediate threat to your health.<br><br> Benign spots are typically harmless and may include common skin lesions such as moles, cysts, or benign tumors.
+                                                When a spot is classified as <strong>"benign,"</strong> it means that
+                                                the analysis indicates the spot is <strong>non-cancerous</strong> and
+                                                does not pose an immediate threat to your health.<br><br> Benign spots
+                                                are typically harmless and may include common skin lesions such as
+                                                moles, cysts, or benign tumors.
                                             </p>
                                             <p class="result-malignant" style="display: none;">
-                                                When a spot is classified as <strong>"malignant,"</strong> it means that the spot may be <strong>cancerous</strong> and requires further evaluation and medical attention. <br><br>Malignant spots are indicative of skin cancer, which can include various types such as melanoma, basal cell carcinoma, or squamous cell carcinoma. <br><br>For more information about skin cancer, you can check our articles here: <a class ="hyperlink-tab" href="https://skinguard-information-center.notaku.site/about-skin-cancer">About Skin Cancer</a>
+                                                When a spot is classified as <strong>"malignant,"</strong> it means that
+                                                the spot may be <strong>cancerous</strong> and requires further
+                                                evaluation and medical attention. <br><br>Malignant spots are indicative
+                                                of skin cancer, which can include various types such as melanoma, basal
+                                                cell carcinoma, or squamous cell carcinoma. <br><br>For more information
+                                                about skin cancer, you can check our articles here: <a
+                                                    class="hyperlink-tab"
+                                                    href="https://skinguard-information-center.notaku.site/about-skin-cancer">About
+                                                    Skin Cancer</a>
                                             </p>
                                         </div> <!-- tabs-with-underline-1 end -->
 
@@ -239,11 +251,15 @@
                                             class="transition-all duration-300 transform  hidden" role="tabpanel"
                                             aria-labelledby="tabs-with-underline-item-2">
                                             <p class="accuracyPercentHigh">
-                                                High accuracy percentage shows that the model is highly certain on the analysis. This meant that you must take big consideration of the result and follow the next steps
-                                                on what you should be doing next. 
+                                                High accuracy percentage shows that the model is highly certain on the
+                                                analysis. This meant that you must take big consideration of the result
+                                                and follow the next steps
+                                                on what you should be doing next.
                                             </p>
                                             <p class="accuracyPercentLow">
-                                                Sometimes, the model is not certain with its result. Try taking another angle of the skin part or try consulting some professionals on any suspicious skin parts.
+                                                Sometimes, the model is not certain with its result. Try taking another
+                                                angle of the skin part or try consulting some professionals on any
+                                                suspicious skin parts.
                                             </p>
                                         </div> <!-- tabs-with-underline-2 end -->
 
@@ -251,17 +267,33 @@
                                             class="transition-all duration-300 transform  hidden" role="tabpanel"
                                             aria-labelledby="tabs-with-underline-item-3">
                                             <p class="nextStep-benign" style="display: none;">
-                                                While benign spots are typically harmless, it's essential to stay vigilant and pay attention to any changes in your skin over time and continuing to practice sun safety measures.
-                                                <br><br>To learn more about preventing skin cancer, you can check our articles here: <a href="https://skinguard-information-center.notaku.site/skin-cancer-prevention" class="hyperlink-tab">Skin Cancer Prevention</a>
+                                                While benign spots are typically harmless, it's essential to stay
+                                                vigilant and pay attention to any changes in your skin over time and
+                                                continuing to practice sun safety measures.
+                                                <br><br>To learn more about preventing skin cancer, you can check our
+                                                articles here: <a
+                                                    href="https://skinguard-information-center.notaku.site/skin-cancer-prevention"
+                                                    class="hyperlink-tab">Skin Cancer Prevention</a>
                                             </p>
                                             <p class="nextStep-malignant" style="display: none;">
-                                                Receiving a malignant result indicates the possibility of skin cancer and requires prompt medical attention and further evaluation. Early detection and treatment are crucial for improving outcomes and preventing the spread of cancer. 
-                                                
-                                                <br><br>You must <strong>schedule an appointment with a dermatologist or healthcare provider</strong> as soon as possible for a comprehensive evaluation of the spot and further diagnostic testing if necessary.
+                                                Receiving a malignant result indicates the possibility of skin cancer
+                                                and requires prompt medical attention and further evaluation. Early
+                                                detection and treatment are crucial for improving outcomes and
+                                                preventing the spread of cancer.
 
-                                                <br><br>To learn more skin cancer treatment options, you can check our article here: <a href="https://skinguard-information-center.notaku.site/about-skin-cancer/treatment-options" class="hyperlink-tab">Skin Cancer Treatment Options</a>
+                                                <br><br>You must <strong>schedule an appointment with a dermatologist or
+                                                    healthcare provider</strong> as soon as possible for a comprehensive
+                                                evaluation of the spot and further diagnostic testing if necessary.
 
-                                                <br><br>To learn more about preventing skin cancer, you can check our articles here: <a href="https://skinguard-information-center.notaku.site/skin-cancer-prevention" class="hyperlink-tab">Skin Cancer Prevention</a>
+                                                <br><br>To learn more skin cancer treatment options, you can check our
+                                                article here: <a
+                                                    href="https://skinguard-information-center.notaku.site/about-skin-cancer/treatment-options"
+                                                    class="hyperlink-tab">Skin Cancer Treatment Options</a>
+
+                                                <br><br>To learn more about preventing skin cancer, you can check our
+                                                articles here: <a
+                                                    href="https://skinguard-information-center.notaku.site/skin-cancer-prevention"
+                                                    class="hyperlink-tab">Skin Cancer Prevention</a>
                                             </p>
                                         </div> <!-- tabs-with-underline-3 end -->
                                     </div>
@@ -283,13 +315,20 @@
     <script src="static/js/knob.js"></script>
     <script src="static/js/preline.js"></script>
     <script src="static/js/app.js"></script>
-    <!-- Script for handling form submission -->
     <script>
         document.getElementById("uploadForm").addEventListener("submit", function (event) {
             event.preventDefault();
             var formData = new FormData(this);
+            var uploadButton = document.querySelector('.upload-button');
+            // Disable the button
+            uploadButton.disabled = true;
+            // Change button text to "Processing Image"
+            uploadButton.textContent = "Processing Image";
+            // Disable the file input
+            document.querySelector('input[type="file"]').disabled = true;
             analyzeImage(formData);
         });
+
         // Function to analyze the image from the user's uploaded input
         function analyzeImage(formData) {
             // Grab the user's uploaded input in the form of POST method
@@ -357,6 +396,13 @@
                     // Round the scaled percentage before displaying 
                     const roundedScaledValue = Math.round(scaledValue);
                     document.getElementById("accuracyScore").innerText = roundedScaledValue + "%";
+
+                    // Re-enable the file input and button after 17 seconds (17000 milliseconds)
+                    setTimeout(function () {
+                        document.querySelector('input[type="file"]').disabled = false;
+                        document.querySelector('.upload-button').disabled = false;
+                        document.querySelector('.upload-button').textContent = "Analyze Image";
+                    }, 15500);
                 })
                 // For error handling the application model
                 .catch(error => console.error("Error:", error));
@@ -365,7 +411,10 @@
         // Hide the results section and "Image" part initially
         document.getElementById("results").style.display = "none";
         document.getElementById("imagePart").style.display = "none";
+
+
     </script>
+
 </body>
 
 </html>
