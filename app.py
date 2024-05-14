@@ -153,7 +153,6 @@ def uv_index():
 
     print("UV Index Data:", uv_index_data)  # Add this line for debugging
 
-
     # Render the 'uv-index.html' template and pass UV index data, location, and description to it
     return render_template('uv-index.html', uv_index_data=uv_index_data, location=location)
 
