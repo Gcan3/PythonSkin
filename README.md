@@ -7,6 +7,7 @@ Link to deployed the WebApp: https://skin-guard-63a46730cc07.herokuapp.com/
 
 
 # To replicate:
+- Download all the libraries from requirements.txt
 - Delete model.h5
 - Run ipynb file (new model automatically saved)
 - Run app.py
